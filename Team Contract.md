@@ -2,7 +2,7 @@
 
 
 Communication:
-1. Team Meetings: Team meetings will be held weekly on Sunday at 1600 with the exception of Fall break. Should the day or time need to change, that must be communicated at least two days prior to the new date. The meetings will be conducted via Discord in either text or voice chat. Notes will be taken alongside the meeting and posted and pinned in the “Notes” channel in the team server. The note taker will be the host of the meeting. The host will rotate each week starting with sarobin2.
+1. Team Meetings: Team meetings will be held weekly on Sunday and Wednesday at 1600 with the exception of Fall break. Should the day or time need to change, that must be communicated at least two days prior to the new date. The meetings will be conducted via Discord in either text or voice chat. Notes will be taken alongside the meeting and posted and pinned in the “Notes” channel in the team server. The note taker will be the host of the meeting. The host will rotate each week starting with sarobin2.
 2. Assistance: Assistance can be requested in the team server in the “General” channel. Excluding extraordinary circumstances, response time should be within 48 hours.
 3. Respect: Once team meetings have begun and the overview has been presented, each team member will be allotted time to discuss their current task progress and any difficulties they have encountered or anticipate. They will then be allowed to express opinions or ask questions about other tasks in the project.
 
