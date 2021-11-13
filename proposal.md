@@ -31,9 +31,9 @@ Graph Algorithms:
         ---"Include runtime"---
 
     Traversal Algorithms
-        The main travelral algorithm will be a Breadth-first search. "i cant think on this part someone help" -Alan ---"Include runtime as well"--- 
+        The main travelral algorithm will be a Breadth-first search. The input would be  a set of 2D points while the output would be a PNG image. If alloted time the output will also have appropriated edge coloring representing out chosen path. The expected runtime of a BFS traversal sould be O(V+E), where V is the number of vertices and E is the number of edges
 
-        The traversal algorithm will be A*, a greedy BFS algorithm. The heuristic chosen will be linear distance to the desired point. Input will be a set of 2D points and the output will be a PNG image with the appropriate edges colored representing the path chosen by the algorithm.
+        As an added extension of challenge we will also implement A*, a greedy BFS algorithm.The heuristic chosen will be linear distance to the desired point. Input will be a set of 2D points and the output will be a PNG image with the appropriate edges colored representing the path chosen by the algorithm.
 
 
 Timeline:
