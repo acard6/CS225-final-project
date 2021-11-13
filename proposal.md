@@ -16,13 +16,23 @@ Dataset Acquisition and Processing:
  
     Should any errors occur in the models, they can be cleaned using Blender 3D.
 
+    ---"For the dataset acquisition section, we are requiring you to specify which dataset you will use for the project. Depending on what dataset you use, you should also specify what nodes and edges represent in the graph."---
+
+
 
 Graph Algorithms:
     Data Algorithms
        	Rendering - Develop an algorithm that takes in a set of 3D points, maps them to a 2D space, and then plots them in a PNG image. Then, using the edges and faces information, draw the edges and color the faces.
-       	Graph coloring - Develop an algorithm that colors the vertices of the mesh using a minimum number of colors. Input will be a set of 2D points, and the output will be a PNG image with the vertices colored appropriately.
+       	
+        ---"Include runtime"---
+           
+        Graph coloring - Develop an algorithm that colors the vertices of the mesh using a minimum number of colors. Input will be a set of 2D points, and the output will be a PNG image with the vertices colored appropriately.
  
+        ---"Include runtime"---
+
     Traversal Algorithms
+        The main travelral algorithm will be a Breadth-first search. "i cant think on this part someone help" -Alan ---"Include runtime as well"--- 
+
         The traversal algorithm will be A*, a greedy BFS algorithm. The heuristic chosen will be linear distance to the desired point. Input will be a set of 2D points and the output will be a PNG image with the appropriate edges colored representing the path chosen by the algorithm.
 
 
