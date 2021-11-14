@@ -51,3 +51,7 @@ Timeline:
     Week 5: Zazz
        	Polish off any components and add face lighting if time is available.
 
+
+Signatures:
+
+Sasha Bilenkyi
