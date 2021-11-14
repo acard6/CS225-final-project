@@ -7,7 +7,7 @@ Leading question:
 Dataset Acquisition and Processing:
 
     Acquisition
-        For out dataset we will be using OpenFlights (https://openflights.org/data.html) mainly focusing on the route path data. This data will lead our verticies to be airports/stops made and the edges to be the flight path between 
+        For out dataset we will be using OpenFlights (https://openflights.org/data.html) mainly focusing on the route path data along with the airport location data. This data will lead our verticies to be airports/stops made and the edges to be the flight path between 
 
     Processing
         In terms of processing the dataset we will download the data file (.CSV) containing the flight paths from the OpenFlighst dataset stoting the data in an adjacency list for optimal runtime. From this list we will determine the optimal route from a chosen  point to another.
