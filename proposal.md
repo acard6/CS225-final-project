@@ -2,51 +2,39 @@ Project Poposal
 
 Leading question:
 
-    Given a set of vertices and edges:
-        -Can the desired 3D mesh be represented in 2D space? (rendering algorithm)
-        -Can the shortest path be found from point a to point b? (pathfinding)
-        -What is the minimum number of colors one can use to color a mesh? (graph coloring)
-
+    Given a set of known flight paths
 
 Dataset Acquisition and Processing:
 
-    Datasets will be simple to come by since they are 3D models. Blender3D will be used to import files in any supported format, and export them as a wavefront (.obj) file format. From there, the only data collected from the file will be vertex locations in 3D space, normals in 3D space, edges and their corresponding vertices, and potentially color data.
- 
-    Once data is collected from the OBJ file, the vertices will be mapped to 2D space using Isometric Projection (https://en.wikipedia.org/wiki/Isometric_projection). This can be done in Python quite easily.
- 
-    Should any errors occur in the models, they can be cleaned using Blender 3D.
+    Acquisition
+        For out dataset we will be using OpenFlights (https://openflights.org/data.html) mainly focusing on the route path data. This data will lead our verticies to be airports/stops made and the edges to be the flight path between 
 
-    ---"For the dataset acquisition section, we are requiring you to specify which dataset you will use for the project. Depending on what dataset you use, you should also specify what nodes and edges represent in the graph."---
-
-
+    Processing
+        In terms of processing the dataset we will download the data file (.CSV) contating the flight paths from the OpenFlighst dataset stoting the data in an adjacency list for optimal runtime. From this list we will determine the optimal route from a chosen  point to another.
 
 Graph Algorithms:
-    Data Algorithms
-       	Rendering - Develop an algorithm that takes in a set of 3D points, maps them to a 2D space, and then plots them in a PNG image. Then, using the edges and faces information, draw the edges and color the faces.
-       	
-        ---"Include runtime"---
-           
-        Graph coloring - Develop an algorithm that colors the vertices of the mesh using a minimum number of colors. Input will be a set of 2D points, and the output will be a PNG image with the vertices colored appropriately.
- 
-        ---"Include runtime"---
+    Data Algorithms           
+        Shortest path - Develop an algorithm that will find the shortest path between two given points in the set using Dijkstra's and Floyd–Warshall algorithms for comparison. The Input would be a set of flight paths and the output would be all possible shortest paths between the chosen two points. The expected runtime of this algoritm is
+        
+        Graph coloring - Develop an algorithm that colors the edges of the output such that the shortest path is highlighted and every other path is colored by determing how much of an increase it is from the shortest path by a given tolerence. Input will be a set of flight paths, and the output would be a graph with edges colored to visualize the optimal paths. The expected runtime of this graph coloring algorithm is O(V^2+E).s
+
 
     Traversal Algorithms
-        The main travelral algorithm will be a Breadth-first search. The input would be  a set of 2D points while the output would be a PNG image. If alloted time the output will also have appropriated edge coloring representing out chosen path. The expected runtime of a BFS traversal sould be O(V+E), where V is the number of vertices and E is the number of edges
+        The main travelral algorithm will be a Breadth-first search. Where the input would be  a the set of flight paths and the output would find the spanning set from one point to another. The output will also have appropriated edge coloring representing the shortest path between two chosen points. The expected runtime of a BFS traversal sould be O(V+E), where V is the number of vertices and E is the number of edges.
 
-        As an added extension of challenge we will also implement A*, a greedy BFS algorithm.The heuristic chosen will be linear distance to the desired point. Input will be a set of 2D points and the output will be a PNG image with the appropriate edges colored representing the path chosen by the algorithm.
 
 
 Timeline:
     Week 1: Data collection and process
-       	Each team member will collect at least two 3D models of their choice with no duplicates between the team. Once collected, the models will be processed using Blender 3D and Python.
+        Complete and submit the team contract and initial project proposal. No real work can be done till project is approved.
  
-    Week 2: Rendering and graph coloring
+    Week 2: Revision and 
        	Team members will tackle the development of the rendering and graph coloring algorithms. The first issue will be to address the rendering of all the vertices and edges in 2D space in a PNG. After that, tasks can be split between rendering faces and a graph coloring algorithm.
  
-    Week 3: A* Development and Testing
-       	The A* algorithm will be implemented once the overall structure of the graph is completed. Team members will also write test cases to thoroughly test the code in various aspects. Past tests will be improved upon and cleaned.
+    Week 3: Off (Fall break)
  
-    Week 4: Off (Fall break)
+    Week 4: A* Development and Testing
+       	The A* algorithm will be implemented once the overall structure of the graph is completed. Team members will also write test cases to thoroughly test the code in various aspects. Past tests will be improved upon and cleaned.
  
     Week 5: Zazz
        	Polish off any components and add face lighting if time is available.
