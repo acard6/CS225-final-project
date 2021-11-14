@@ -16,7 +16,7 @@ Graph Algorithms:
     Data Algorithms           
         Shortest path - Develop an algorithm that will find the shortest path between two given points in the set using Dijkstra's and Floyd–Warshall algorithms for comparison. The Input would be a set of flight paths and the output would be all possible shortest paths between the chosen two points. The expected runtime of this algoritm is
         
-        Graph coloring - Develop an algorithm that colors the edges of the output such that the shortest path is highlighted and every other path is colored by determing how much of an increase it is from the shortest path by a given tolerence. Input will be a set of flight paths, and the output would be a graph with edges colored to visualize the optimal paths. The expected runtime of this graph coloring algorithm is O(V^2+E).s
+        Graph coloring - Develop an algorithm that colors the edges of the output such that the shortest path is highlighted and every other path is colored by determing how much of an increase it is from the shortest path by a given tolerence. Input will be a set of flight paths, and the output would be a graph with edges colored to visualize the optimal paths. The expected runtime of this graph coloring algorithm is O(V^2+E).
 
 
     Traversal Algorithms
@@ -29,7 +29,7 @@ Timeline:
         Complete and submit the team contract and initial project proposal. No real work can be done till project is approved.
  
     Week 2: Revision and 
-       	Team members will tackle the development of the rendering and graph coloring algorithms. The first issue will be to address the rendering of all the vertices and edges in 2D space in a PNG. After that, tasks can be split between rendering faces and a graph coloring algorithm.
+       	Team members will tackle the development of the shortest route algorithms and graph coloring algorithms. 
  
     Week 3: Off (Fall break)
  
