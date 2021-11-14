@@ -10,7 +10,7 @@ Dataset Acquisition and Processing:
         For out dataset we will be using OpenFlights (https://openflights.org/data.html) mainly focusing on the route path data. This data will lead our verticies to be airports/stops made and the edges to be the flight path between 
 
     Processing
-        In terms of processing the dataset we will download the data file (.CSV) contating the flight paths from the OpenFlighst dataset stoting the data in an adjacency list for optimal runtime. From this list we will determine the optimal route from a chosen  point to another.
+        In terms of processing the dataset we will download the data file (.CSV) containing the flight paths from the OpenFlighst dataset stoting the data in an adjacency list for optimal runtime. From this list we will determine the optimal route from a chosen  point to another.
 
 Graph Algorithms:
     Data Algorithms           
@@ -20,7 +20,7 @@ Graph Algorithms:
 
 
     Traversal Algorithms
-        The main travelral algorithm will be a Breadth-first search. Where the input would be  a the set of flight paths and the output would find the spanning set from one point to another. The output will also have appropriated edge coloring representing the shortest path between two chosen points. The expected runtime of a BFS traversal sould be O(V+E), where V is the number of vertices and E is the number of edges.
+        The main traversal algorithm will be a Breadth-first search. Where the input would be a the set of flight paths and the output would find the spanning set from one point to another. The output will also have appropriated edge coloring representing the shortest path between two chosen points. The expected runtime of a BFS traversal sould be O(V+E), where V is the number of vertices and E is the number of edges.
 
 
 
