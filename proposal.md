@@ -36,14 +36,9 @@ Graph Algorithms:
 
         Rendering - If time alloted, develop an algorithm that outputs the colored graph onto a world map. The input would be the colored shortest path graph and the list of associated airports. The expected runtime would be O(deg(V))
 
-<<<<<<< HEAD
     Traversal Algorithms:
     
         The main travelral algorithm will be a Breadth-first search. Where the input would be  a the set of flight paths and the output would find the spanning set from one point to another. The output will also have appropriated edge coloring representing the shortest path between two chosen points. The expected runtime of a BFS traversal sould be O(V+E), where V is the number of vertices and E is the number of edges.
-=======
-    Traversal Algorithms
-        The main traversal algorithm will be a Breadth-first search. Where the input would be a the set of flight paths and the output would find the spanning set from one point to another. The output will also have appropriated edge coloring representing the shortest path between two chosen points. The expected runtime of a BFS traversal sould be O(V+E), where V is the number of vertices and E is the number of edges.
->>>>>>> 54c67e2385935efcac85074c3e25b4e81979db8d
 
 Timeline:
 
