@@ -10,21 +10,13 @@ Leading question:
 
 Dataset Acquisition and Processing:
 
-<<<<<<< HEAD
     Acquisition:
 
-        For out dataset we will be using OpenFlights (https://openflights.org/data.html) mainly focusing on the route path data. This data will lead our verticies to be airports/stops made and the edges to be the flight path between 
+        For out dataset we will be using OpenFlights (https://openflights.org/data.html) mainly focusing on the route path data along with the airport location data. This data will lead our verticies to be airports/stops made and the edges to be the flight path between 
 
     Processing:
 
-        In terms of processing the dataset we will download the data file (.CSV) contating the flight paths from the OpenFlighst dataset stoting the data in an adjacency list for optimal runtime. From this list we will determine the optimal route from a chosen  point to another.
-=======
-    Acquisition
-        For out dataset we will be using OpenFlights (https://openflights.org/data.html) mainly focusing on the route path data along with the airport location data. This data will lead our verticies to be airports/stops made and the edges to be the flight path between 
-
-    Processing
         In terms of processing the dataset we will download the data file (.CSV) containing the flight paths from the OpenFlighst dataset stoting the data in an adjacency list for optimal runtime. From this list we will determine the optimal route from a chosen  point to another.
->>>>>>> 54c67e2385935efcac85074c3e25b4e81979db8d
 
 Graph Algorithms:
 
@@ -37,7 +29,7 @@ Graph Algorithms:
         Rendering - If time alloted, develop an algorithm that outputs the colored graph onto a world map. The input would be the colored shortest path graph and the list of associated airports. The expected runtime would be O(deg(V))
 
     Traversal Algorithms:
-    
+
         The main travelral algorithm will be a Breadth-first search. Where the input would be  a the set of flight paths and the output would find the spanning set from one point to another. The output will also have appropriated edge coloring representing the shortest path between two chosen points. The expected runtime of a BFS traversal sould be O(V+E), where V is the number of vertices and E is the number of edges.
 
 Timeline:
@@ -45,13 +37,11 @@ Timeline:
     Week 1: Data collection and process
         Complete and submit the team contract and initial project proposal. No real work can be done till project is approved.
  
-<<<<<<< HEAD
     Week 2: Revision and shortest path algorithm
        	Team members will tackle the revising the proposal to better fit the project and develop the shortest path algorithms. The first issue will be to address the corrections needed to make to the proposal to move the project forward. After that, tasks can be split between processing data to make a graph via BFS traveral and a shortest path algorithm.
-=======
+
     Week 2: Revision and 
        	Team members will tackle the development of the shortest route algorithms and graph coloring algorithms. 
->>>>>>> 54c67e2385935efcac85074c3e25b4e81979db8d
  
     Week 3: Off (Fall break)
  
@@ -59,10 +49,11 @@ Timeline:
        	The graph coloring algorithm and rendering will be implemented once the overall structure of the graph is completed. Team members will also write test cases to thoroughly test the code in various aspects. Past tests will be improved upon and cleaned.
  
     Week 5: Zazz
-       	Polish off any components and add face lighting if time is available.
+       	Polish off any unfinished components and revise and add more test cases.
 
 
 Signatures:
 
 Sasha Bilenkyi
 Alan Cardiel
+Sean Womack
