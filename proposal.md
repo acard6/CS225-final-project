@@ -22,7 +22,7 @@ Graph Algorithms:
 
     Data Algorithms:
 
-        Shortest path - Develop an algorithm that will find the shortest path between two given points in the set using Floyd–Warshall algorithms. The Input would the graph of flight paths and the output would be all possible shortest paths between the chosen two points. The expected runtime of this algoritm is O(E+Vlog(V))
+        Shortest path - Develop an algorithm that will find the shortest path between two given points in the set using Floyd–Warshall algorithms. The Input would the graph of flight paths and the output would be all possible shortest paths between the chosen two points. For our shortest path algorithm the weighted edges would be defined as the distance between two points on the surface of a sphere. In this case the sphere is the globe of the earth. Distance will be found by using the Haversine formula to to determine the weight of the edges. The expected runtime of this algoritm is O(E+Vlog(V))
         
         Graph coloring - Develop an algorithm that colors the edges of the output such that the shortest path is highlighted and every other path is colored by determing how much of an increase it is from the shortest path by a given tolerence. Input will be a set of flight paths, and the output would be a graph with edges colored to visualize the optimal paths. The expected runtime of this graph coloring algorithm is O(V^2+E).
 
