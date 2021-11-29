@@ -1,6 +1,7 @@
 #include <fstream>
 
-using std::ofstream;
+using std::ifstream;
+using std::strtod;
 
 #include "DataImport.h"
 
@@ -44,7 +45,7 @@ vector<string> DataImport::ImportDataFile(string filename)
             temp = "";
         }
 
-        data.close()
+        data.close();
     }
 
     return output;
@@ -52,10 +53,50 @@ vector<string> DataImport::ImportDataFile(string filename)
 
 vector<Airport> DataImport::ImportAirports(string filename)
 {
-    
+    vector<Airport> airports;
+    vector<string> inputData = ImportDataFile(filename);
+
+    for (auto s : inputData)
+    {
+        vector<string> temp = Split(s, ",");
+
+        //0 = name
+        //1 = city
+        //2 = country
+        //3 = code
+        //4 = latitude
+        //5 = longitude
+
+        double lat = strtod(temp[4].c_str(), NULL);
+        double lon = strtod(temp[5].c_str(), NULL);
+
+        Airport a(temp[0], temp[1], temp[2], temp[3], lat, lon);
+
+        airports.push_back(a);
+    }
+
+    return airports;
 }
 
 vector<Route> DataImport::ImportRoutes(string filename)
 {
+    vector<Route> routes;
+    vector<string> inputData = ImportDataFile(filename);
 
+    for (auto s : inputData)
+    {
+        vector<string> temp = Split(s, ",");
+
+        //0 = source
+        //1 = destination
+        //2 = number of stops
+
+        int stops = stoi(temp[2]);
+
+        Route r(temp[0], temp[1], stops);
+
+        routes.push_back(r);
+    }
+
+    return routes;
 }
