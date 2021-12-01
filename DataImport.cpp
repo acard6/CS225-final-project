@@ -1,7 +1,9 @@
 #include <fstream>
+#include <string>
 
 using std::ifstream;
-using std::strtod;
+//using std::strtod;
+using namespace std;
 
 #include "DataImport.h"
 
@@ -28,7 +30,7 @@ vector<string> Split(string str, string delimiter)
     if(str.length() > 0) splitStrings.push_back(str);
 
     return splitStrings;
-}
+};
 
 vector<string> DataImport::ImportDataFile(string filename)
 {
@@ -67,7 +69,7 @@ vector<Airport> DataImport::ImportAirports(string filename)
         //4 = latitude
         //5 = longitude
 
-        double lat = strtod(temp[4].c_str(), NULL);
+        double lat = stod(temp[4].c_str(), NULL);
         double lon = strtod(temp[5].c_str(), NULL);
 
         Airport a(temp[0], temp[1], temp[2], temp[3], lat, lon);

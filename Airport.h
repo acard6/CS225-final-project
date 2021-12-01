@@ -13,6 +13,6 @@ class Airport
         double longitude; //Longitude of the airport
     
     public:
-        Airport(string nname, string city, string country, string code,
+        Airport(string name, string city, string country, string code,
                 double latitude, double longitude);
 };
