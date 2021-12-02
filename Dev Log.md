@@ -26,7 +26,7 @@ Alan Cardiel: Graph building
 
 Week 5:
 
-
+Sasha Bilenkyi: Start working on the final presentation slides. 
 
 
 
