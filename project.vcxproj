@@ -98,15 +98,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="adjList.cpp" />
     <ClCompile Include="Airport.cpp" />
+    <ClCompile Include="cs225\HSLAPixel.cpp" />
+    <ClCompile Include="cs225\lodepng\lodepng.cpp" />
+    <ClCompile Include="cs225\PNG.cpp" />
     <ClCompile Include="DataImport.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Route.cpp" />
+    <ClCompile Include="TestSuite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="adjList.h" />
     <ClInclude Include="Airport.h" />
+    <ClInclude Include="cs225\HSLAPixel.h" />
+    <ClInclude Include="cs225\lodepng\lodepng.h" />
+    <ClInclude Include="cs225\PNG.h" />
+    <ClInclude Include="cs225\RGB_HSL.h" />
     <ClInclude Include="DataImport.h" />
     <ClInclude Include="Route.h" />
+    <ClInclude Include="TestSuite.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\airports.dat" />

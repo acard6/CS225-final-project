@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include <cmath>
 #include <string>
@@ -5,8 +7,6 @@
 #include <cstdlib>
 
 #include "DataImport.h"
-#include "Airport.h"
-#include "Route.h"
 
 using namespace std;
 
@@ -20,10 +20,10 @@ class ADJList{
             string vertex;
             adjVert* next; 
         };
-        struct edge{
+        struct edge {
             string start, end;
             int weight;
-        }
+        };
 
         vector<string> list;
         double radius; //earths in miles
@@ -33,13 +33,13 @@ class ADJList{
         /** adds the edges that each airport is connected to 
         *   and the edge weight 
         */
-        void addEdge(Airport::Airrport airport, Route::Route route);
+        void addEdge(Airport airport, Route route);
 
         /**
          * calcultes how far each connected airport is from eachother
          * using haversine function to calculate great circle distance
          * https://en.wikipedia.org/wiki/Haversine_formula 
          */
-        double distance (Airport::Airport air1, Airport::Airport air2);
+        double distance (Airport air1, Airport air2);
 
 };

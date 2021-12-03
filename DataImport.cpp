@@ -32,7 +32,7 @@ vector<string> Split(string str, string delimiter)
     return splitStrings;
 };
 
-vector<string> DataImport::ImportDataFile(string filename)
+vector<string> ImportDataFile(string filename)
 {
     ifstream data(filename);
     vector<string> output;
@@ -43,6 +43,8 @@ vector<string> DataImport::ImportDataFile(string filename)
 
         while(getline(data, temp))
         {
+            while (temp[0] < 0) temp.erase(temp.begin());
+
             output.push_back(temp);
             temp = "";
         }
@@ -53,11 +55,11 @@ vector<string> DataImport::ImportDataFile(string filename)
     return output;
 }
 
-vector<Airport> DataImport::ImportAirports(string filename)
+vector<Airport> ImportAirports(string filename)
 {
     vector<Airport> airports;
     vector<string> inputData = ImportDataFile(filename);
-
+    
     for (auto s : inputData)
     {
         vector<string> temp = Split(s, ",");
@@ -68,6 +70,12 @@ vector<Airport> DataImport::ImportAirports(string filename)
         //3 = code
         //4 = latitude
         //5 = longitude
+
+        if (airports.size() >= 3060)
+        {
+            int i = 0;
+            ++i;
+        }
 
         double lat = stod(temp[4].c_str(), NULL);
         double lon = strtod(temp[5].c_str(), NULL);
@@ -80,7 +88,7 @@ vector<Airport> DataImport::ImportAirports(string filename)
     return airports;
 }
 
-vector<Route> DataImport::ImportRoutes(string filename)
+vector<Route> ImportRoutes(string filename)
 {
     vector<Route> routes;
     vector<string> inputData = ImportDataFile(filename);

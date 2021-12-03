@@ -1,10 +1,12 @@
+#pragma once
+
 #include <string>
 
 using std::string;
 
 class Airport
 {
-    private:
+    public:
         string name; //Name of the airport
         string city; //City in which the airport is
         string country; //Country in which the airport is
@@ -13,6 +15,7 @@ class Airport
         double longitude; //Longitude of the airport
     
     public:
+        Airport();
         Airport(string name, string city, string country, string code,
                 double latitude, double longitude);
 };
