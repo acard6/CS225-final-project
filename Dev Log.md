@@ -28,11 +28,10 @@ Week 5:
 
 Sasha Bilenkyi: Start working on the final presentation slides. 
 
+Justin Gharib: BFS search/Shortest path
 
 
 TODO:
-
-BFS search/Shortest path
 
 { //Must be completed in order
 	Rendering
