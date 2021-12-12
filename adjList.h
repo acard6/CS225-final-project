@@ -24,13 +24,21 @@ class ADJList{
         *   from there
         */
         struct edge {
-            Airport end; // airport connected to the key
-            edge* next; //edge pointer pointing to another connected edge
-            int weight; //weight from key to this edge
+            Airport destination; // the airport thats connected to the head/key
+            edge* next; //edge pointer pointing to another aiport that connects to the vertex
+            double weight; //weight from key vertex to this edge
+        };
+        class edgeList {
+            private:
+                edge* head; //head is main/original airport/vertex
+            public:
+                edgeList(){
+                    head = NULL; 
+                }
         };
 
         //pair of doubly liked airport and linked edges 
-        std::pair<Airport,edge*>** list;
+        std::pair<string, edgeList>** list;
         size_t size;
         double radius; //earths in kilometers
         double toRad; // multiplier conversion from degrees to radians 
@@ -48,31 +56,35 @@ class ADJList{
         adjList();
 
         //add an edge to an existing vertext
-        void addEdge(Airport airport, Route route);
+        void addEdge(const Route& route);
 
         //adds a vertext to the hash table
-        void addVertex(vector<Airport> airportList);
+        void addVertex(vector<Airport>& airportList);
 
         /**
          * hash function for so that airports are easy to look for and
          * so that fins doesnt take O(n^2)
          */
-        int hashFunc(Airport airport);
+        unsigned int hashFunc(const Airport& airport);
+
+        unsigned int hashFunc(const string& airport);
 
         //double hash function to help deal with collisions
-        int doubleHash(Airport airport)
+        unsigned int doubleHash(const Airport& name);
 
+        unsigned int doubleHash(const string& name);
+        
         /**
          * uses hash function to help locate where in the table an
          * airport is
          */
-        int find(Airport airport);
+        unsigned int find(const string& name) const;
 
         /**
          * calcultes how far each connected airport is from eachother
          * using haversine function to calculate great circle distance
          * https://en.wikipedia.org/wiki/Haversine_formula 
          */
-        double distance (Airport air1, Airport air2);
+        double distance (const Airport& air1, const Airport& air2) const;
 
 };
