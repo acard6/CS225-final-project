@@ -18,8 +18,8 @@ BFS::BFS(const Airport& start){
     visited[find(start.name)]=true;
 
     while(!queue_.empty()){
-        Airport node = queue_.front();
-        queue_.pop();
+        Airport node* = queue_.front();
+        
 
         edgeList templ = getList(node);
         edge temp = templ.getHead();
@@ -33,6 +33,7 @@ BFS::BFS(const Airport& start){
                 temp = temp.next;
             }
         }
+        queue_.pop();
     }
 }
 vector<Airport> BFS::Shortest(Airport a,Airport b){
@@ -51,8 +52,7 @@ vector<Airport> BFS::Shortest(Airport a,Airport b){
     v[find(a.name)] = true
     q.push(a);
     while(!q.empty()){
-        Airport node = q.front();
-        q.pop();
+        Airport node* = q.front();
         edgeList templ = getList(node);
         edge temp = templ.getHead();
         while(temp != NULL){
@@ -78,6 +78,7 @@ vector<Airport> BFS::Shortest(Airport a,Airport b){
                 temp = temp.next;
             }
         }
+        q.pop();
     }
     stack<Airport> stack;
     int i = find(b.name);
