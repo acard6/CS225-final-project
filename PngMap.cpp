@@ -1,17 +1,20 @@
 #include "PngMap.h"
 
-void drawLine(vector<pair<int, int>>& points, double start,
+void drawLine(vector<pair<int, int> >& points, double start,
                 double end, double slope, double intercept)
 {
     for (double i = start; i < end; i += 0.1)
     {
-        points.push_back({ i, slope * i + intercept });
+        points.push_back(pair<int, int>(i, slope * i + intercept));
     }
 }
 
 PngMap::PngMap(const vector<Airport>& airportList)
 {
-    for(auto a : airportList) airports.insert(make_pair(a.code, a));
+    for(size_t i = 0; i < airportList.size(); ++i)
+    {
+        airports.insert(make_pair(airportList[i].code, airportList[i]));
+    }
 
     output.readFromFile("map.png");
 
@@ -31,9 +34,11 @@ void PngMap::createMap(vector<Route> routes, string filename)
 
 void PngMap::plotAirports()
 {
-    for(auto a : airports)
+    map<string, Airport>::iterator it = airports.begin();
+
+    for(it; it != airports.end(); ++it)
     {
-        Airport airport = a.second;
+        Airport airport = (*it).second;
 
         double size = 2.0;
 
@@ -75,7 +80,7 @@ void PngMap::plotRoutes(vector<Route> routes)
         double slope = (sourceY - destY) / (sourceX - destX);
         double intercept = sourceY - sourceX * slope;
 
-        vector<pair<int, int>> points;
+        vector<pair<int, int> > points;
 
         double start = (sourceX <= destX) ? sourceX : destX;
         double end = 0.0;
@@ -85,8 +90,9 @@ void PngMap::plotRoutes(vector<Route> routes)
 
         drawLine(points, start, end, slope, intercept);
 
-        for(auto p : points)
+        for(size_t i = 0; i < points.size(); ++i)
         {
+            pair<int, int> p = points[i];
             output.getPixel(p.first, p.second) = optimalRoute;
         }
     }
