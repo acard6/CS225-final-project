@@ -1,6 +1,7 @@
 #include "adjList.h"
 #include "cs225/PNG.h"
 #include "TestSuite.h"
+#include "Map.h"
 #include <iostream>
 #include <map>
 
