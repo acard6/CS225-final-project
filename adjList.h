@@ -39,10 +39,6 @@ class ADJList{
         unsigned int doubleHash(const Airport& Airport);
 
         unsigned int doubleHash(const string& name);
-<<<<<<< HEAD
-        
-=======
->>>>>>> f2378de22a21f2be86b3f24cdd47365f5b151cc5
 
         /**
          * calcultes how far each connected airport is from eachother

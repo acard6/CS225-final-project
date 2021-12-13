@@ -6,7 +6,6 @@
 #include <queue>
 
 #include "adjList.h"
-#include "edgeList.h"
 
 
 class BFS{
