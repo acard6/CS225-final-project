@@ -7,7 +7,9 @@
 #include <vector>
 #include <map>
 
-BFS::BFS(const Airport& start){
+using namespace std;
+
+BFS::BFS(Airport* start){
     ADJList graph = ADJList();
     vector<Airport> path;
     start_ = start;
@@ -36,7 +38,7 @@ BFS::BFS(const Airport& start){
         queue_.pop();
     }
 }
-vector<Airport> BFS::Shortest(Airport a,Airport b){
+vector<Airport> BFS::Shortest(Airport* a,Airport* b){
     ADJList graph = ADJList();
     vector<Airport> path;
     queue<Airport> q;

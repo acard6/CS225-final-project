@@ -17,10 +17,10 @@ public:
   //Traverses the graph
   BFS(){
     start_ = NULL;
-  };
-  BFS(const Airport & start);
+  }
+  BFS(Airport* start);
   //Uses Dijkstra's Algorithm to find the shortest path to every node
-  vector<Airport> Shortest(Airport a, Airport b);
+  vector<Airport> Shortest(Airport* a, Airport* b);
 
 private:
   queue<Airport> queue_;
