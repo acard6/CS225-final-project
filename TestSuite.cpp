@@ -5,7 +5,7 @@
 */
 
 /*
-	PNG tests
+	PNG Airport tests
 */
 
 /*
