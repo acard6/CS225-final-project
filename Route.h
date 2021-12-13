@@ -15,5 +15,5 @@ class Route
         Route();
         Route(string source, string destination, int stops);
 
-        operator==(const Route& rhs);
+        bool operator==(const Route& rhs);
 };

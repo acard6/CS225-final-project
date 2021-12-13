@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 /*
 	Data import
 */
@@ -31,7 +30,11 @@ bool TestRouteImport(int n, Route* route)
 */
 bool PngAirportComparison(int n)
 {
-	
+	vector<Airport> airports = ImportAirports("./data/airports.csv");
+
+	Map airportMap(airports);
+	airportMap.createMap(vector<Route>(),
+						"airportComparison" + to_string(n) + ".png");
 }
 
 /*

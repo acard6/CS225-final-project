@@ -20,8 +20,8 @@ ADJList::ADJList(){
 
 size_t ADJList::size(){return length;}
 
-pair<string,edgeList>& ADJList::operator[](const int& key){
-    int idx = find(key);
+pair<string,ADJList::edgeList>& ADJList::operator[](const int& key){
+    int idx = find(string(char(key)).c_str());
     if (idx != -1) {return list[idx];} //returns the key which is a string
 	else {return;}
 }

@@ -1,18 +1,10 @@
 #pragma once
 
-<<<<<<< HEAD
-#include <string>
-#include <vector>
-#include <iostream>
-
-=======
->>>>>>> 5cf3d4db78c6952f155cb787857be8a827836cbc
 #include "Airport.h"
 #include "DataImport.h"
 #include "Route.h"
 #include "adjList.h"
-
-#include <iostream>
+#include "Map.h"
 
 /*
 	Data import
@@ -26,6 +18,7 @@ bool TestRouteImport(int n, Route* route);
 /*
 	PNG Airport tests
 */
+//Compare the first 1, 10, 100, and 1000 airports to the plotted values
 bool PngAirportComparison(int n);
 
 /*

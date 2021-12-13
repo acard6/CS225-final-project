@@ -50,6 +50,8 @@ void Map::plotAirports()
 
 void Map::plotRoutes(vector<Route> routes)
 {
+    if(routes.empty()) return;
+    
     for(int i = 0; i < routes.size(); ++i)
     {
         Airport source = airports[routes[i].source];
