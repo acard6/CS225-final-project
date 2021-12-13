@@ -26,6 +26,10 @@ bool TestRouteImport(int n, Route* route)
 /*
 	PNG Airport tests
 */
+bool PngAirportComparison(int n)
+{
+	
+}
 
 /*
 	Adjacency List
@@ -37,7 +41,20 @@ bool TestSuite::smallADJListComparison(){
 /*
 	Route Rendering
 */
+bool PngRouteComparison()
+{
+
+}
 
 /*
 	Graph Coloring
 */
+bool PngSimpleRouteHighlightComparison(Airport source, Airport dest)
+{
+
+}
+
+bool PngComplexRouteHighlightComparison(Airport source, Airport dest)
+{
+
+}

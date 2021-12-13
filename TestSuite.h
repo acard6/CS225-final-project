@@ -30,7 +30,7 @@ bool smallADJListComparison();
 /*
 	Route Rendering
 */
-bool PngAirportComparison(int n);
+bool PngAirportComparison();
 
 /*
 	Graph Coloring
