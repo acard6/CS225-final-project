@@ -9,7 +9,7 @@
 
 #include "BFS.h"
 
-BFS::BFS(Airport start){
+BFS::BFS(const Airport& start){
     std::vector<Airport> path;
     start_ = start;
     queue_.push(start_);
@@ -36,7 +36,7 @@ BFS::BFS(Airport start){
         }
     }
 }
-vector<Airport> Shortest(Airport a,Airpot b){
+vector<Airport> BFS::Shortest(Airport a,Airport b){
     std::vector<Airport> path;
     std::queue<Airport> q;
     std::vector<bool> v;

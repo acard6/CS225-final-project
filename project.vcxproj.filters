@@ -30,9 +30,6 @@
     <ClCompile Include="adjList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestSuite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cs225\HSLAPixel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -40,6 +37,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cs225\lodepng\lodepng.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BFS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PngMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,9 +62,6 @@
     <ClInclude Include="TestSuite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cs225\PNG.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="cs225\HSLAPixel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -69,6 +69,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cs225\lodepng\lodepng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BFS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PngMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cs225\PNG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

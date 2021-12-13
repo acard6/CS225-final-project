@@ -21,9 +21,8 @@ ADJList::ADJList(){
 size_t ADJList::size(){return length;}
 
 pair<string,ADJList::edgeList>& ADJList::operator[](const int& key){
-    int idx = find(string(char(key)).c_str());
-    if (idx != -1) {return list[idx];} //returns the key which is a string
-	else {return;}
+    int idx = find(to_string(key));
+    return *list[idx]; //returns the key which is a string
 }
 
 ADJList::edgeList ADJList::getList(Airport& airport){
@@ -32,6 +31,8 @@ ADJList::edgeList ADJList::getList(Airport& airport){
 	if (idx != -1){
 		return list[idx]->second;
 	}
+
+	return edgeList();
 }
 
 ADJList::edgeList ADJList::getList(string& Name){
@@ -39,6 +40,8 @@ ADJList::edgeList ADJList::getList(string& Name){
 	if (idx != -1){
 		return list[idx]->second;
 	}
+
+	return edgeList();
 }
 
 void ADJList::addEdge(const Route& route){
@@ -105,12 +108,12 @@ unsigned int ADJList::find(string Name){
 
 unsigned int ADJList::hashFunc(const Airport& airport){
 	string name = airport.name;
-	hashFunc(name);
+	return hashFunc(name);
 }
 
 unsigned int ADJList::doubleHash(const Airport& airport){
 	string name = airport.name;
-	doubleHash(name);
+	return doubleHash(name);
 }
 
 unsigned int ADJList::hashFunc(const string& name){

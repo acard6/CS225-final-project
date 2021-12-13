@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "PngMap.h"
 
 void drawLine(vector<pair<int, int>>& points, double start,
                 double end, double slope, double intercept)
@@ -9,22 +9,27 @@ void drawLine(vector<pair<int, int>>& points, double start,
     }
 }
 
-Map::Map(const vector<Airport>& airportList)
+PngMap::PngMap(const vector<Airport>& airportList)
 {
     for(auto a : airportList) airports.insert(make_pair(a.code, a));
 
-    map.readFromFile("map.png");
+    output.readFromFile("map.png");
+
+    airportDot = HSLAPixel(0, 1, .50, 1); //yellow
+    optimalRoute = HSLAPixel(104, 1, .50, 1); //green
+    secondBestRoute = HSLAPixel(181, 1, .50, 1); //blue
+    worstRoute = HSLAPixel(0, 1, .50, 1); //red
 }
 
-void Map::createMap(vector<Route> routes, string filename)
+void PngMap::createMap(vector<Route> routes, string filename)
 {
     plotAirports();
-    plotRoutes();
+    plotRoutes(routes);
 
-    map.writeToFile(filename);
+    output.writeToFile(filename);
 }
 
-void Map::plotAirports()
+void PngMap::plotAirports()
 {
     for(auto a : airports)
     {
@@ -35,20 +40,20 @@ void Map::plotAirports()
         double lat = airport.latitude / 90.0;
         double lon = airport.longitude / 180.0;
 
-        double x = (1.0 + lon) * double(map.width()) / 2.0;
-        double y = (1.0 - lat) * double(map.height()) / 2.0;
+        double x = (1.0 + lon) * double(output.width()) / 2.0;
+        double y = (1.0 - lat) * double(output.height()) / 2.0;
 
         for(double i = x; i < x + size; ++i)
         {
             for(double j = y; j < y + size; ++j)
             {
-                map.getPixel(i, j) = airportDot;
+                output.getPixel(i, j) = airportDot;
             }
         }
     }
 }
 
-void Map::plotRoutes(vector<Route> routes)
+void PngMap::plotRoutes(vector<Route> routes)
 {
     if(routes.empty()) return;
     
@@ -62,17 +67,17 @@ void Map::plotRoutes(vector<Route> routes)
         dest.latitude /= 90.0;
         dest.longitude /= 180.0;
 
-        double sourceX = (1.0 + source.longitude) * double(map.width()) / 2.0;
-        double sourceY = (1.0 - source.latitude) * double(map.height()) / 2.0;
-        double destX = (1.0 + dest.longitude) * double(map.width()) / 2.0;
-        double destY = (1.0 - dest.latitude) * double(map.height()) / 2.0;
+        double sourceX = (1.0 + source.longitude) * double(output.width()) / 2.0;
+        double sourceY = (1.0 - source.latitude) * double(output.height()) / 2.0;
+        double destX = (1.0 + dest.longitude) * double(output.width()) / 2.0;
+        double destY = (1.0 - dest.latitude) * double(output.height()) / 2.0;
 
         double slope = (sourceY - destY) / (sourceX - destX);
         double intercept = sourceY - sourceX * slope;
 
         vector<pair<int, int>> points;
 
-        double start = (source <= destX) ? sourceX : destX;
+        double start = (sourceX <= destX) ? sourceX : destX;
         double end = 0.0;
 
         if (start == sourceX) end = destX;
@@ -82,7 +87,7 @@ void Map::plotRoutes(vector<Route> routes)
 
         for(auto p : points)
         {
-            map.getPixel(p.first, p.second) = optimalRoute;
+            output.getPixel(p.first, p.second) = optimalRoute;
         }
     }
 }
