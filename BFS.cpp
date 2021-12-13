@@ -8,7 +8,7 @@
 #include <map>
 
 BFS::BFS(const Airport& start){
-    ADJList graph = DJList();
+    ADJList graph = ADJList();
     std::vector<Airport> path;
     start_ = start;
     queue_.push(start_);
@@ -21,7 +21,7 @@ BFS::BFS(const Airport& start){
         Airport node* = queue_.front();
         
 
-        edgeList templ = getList(node);
+        edgeList templ = graph.getList(node);
         edge temp = templ.getHead();
         while(temp != NULL){
             if(visited[find(temp.destination.name)]==false){
@@ -37,6 +37,7 @@ BFS::BFS(const Airport& start){
     }
 }
 vector<Airport> BFS::Shortest(Airport a,Airport b){
+    ADJList graph = ADJList();
     std::vector<Airport> path;
     std::queue<Airport> q;
     std::vector<bool> v;
@@ -53,7 +54,7 @@ vector<Airport> BFS::Shortest(Airport a,Airport b){
     q.push(a);
     while(!q.empty()){
         Airport node* = q.front();
-        edgeList templ = getList(node);
+        edgeList templ = graph.getList(node);
         edge temp = templ.getHead();
         while(temp != NULL){
             if(v[find(temp.destination.name])==false){
