@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "Airport.h"
 #include "Route.h"
@@ -21,7 +22,7 @@ bool PngAirportComparison(int n);
 	Adjacency List
 */
 
-bool smallADJListComparison();
+void smallADJList();
 
 /*
 	Route Rendering
