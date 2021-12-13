@@ -12,5 +12,8 @@ class Route
         int stops; //Number of stops in the route
     
     public:
+        Route();
         Route(string source, string destination, int stops);
+
+        operator==(const Route& rhs);
 };

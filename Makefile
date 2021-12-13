@@ -1,5 +1,5 @@
-output: adjList.o Airport.o DataImport.o main.o Route.o TestSuite.o HSLAPixel.o PNG.o lodepng.o
-	g++ adjList.o Airport.o DataImport.o main.o Route.o TestSuite.o HSLAPixel.o PNG.o lodepng.o -o project
+output: adjList.o Airport.o DataImport.o main.o Map.o Route.o TestSuite.o HSLAPixel.o PNG.o lodepng.o
+	g++ adjList.o Airport.o DataImport.o main.o Map.o Route.o TestSuite.o HSLAPixel.o PNG.o lodepng.o -o project
 
 adjList.o: adjList.cpp adjList.h
 	g++ -c adjList.cpp
@@ -12,6 +12,9 @@ DataImport.o: DataImport.cpp DataImport.h
 
 main.o: main.cpp
 	g++ -c main.cpp
+
+Map.o: Map.cpp Map.h
+	g++ -c Map.cpp
 
 Route.o: Route.cpp Route.h
 	g++ -c Route.cpp
