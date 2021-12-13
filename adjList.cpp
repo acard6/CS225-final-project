@@ -10,7 +10,7 @@
 
 using namespace std;
 
-ADJList::adjList(){
+ADJList::ADJList(){
 	size = 7699;
 	list = new std::pair<string,edgeList>* [size]
 	for (size_t i=0; i<size; i++){
@@ -18,9 +18,18 @@ ADJList::adjList(){
 	}
 }
 
+edgeList ADJList::getList(Airport& airport){
+	string IDName = airport.name;
+	unsigned int idx = find(IDName);
+	if (idx != -1){
+		return list[idx]->second;
+	}
+
+}
+
 void ADJList::addEdge(const Route& route){
-	string orig = route[0];
-	string dest = route[1];
+	string orig = route.source;
+	string dest = route.stops;
 	unsigned int ogIdx = find(orig);
 	unsigned int destIdx = find(dest);
 	if (ogIdx != -1 || destIdx != -1){ // if either airport is in the hashtable
@@ -62,13 +71,13 @@ void ADJList::addVertex(vector<Airport>& airpotList){
 	}
 }
 
-unsigned int ADJList::find(const string& name) const{
-	unsigned int idx = hashFunc(name);
-	unsigned int id2 = doublehash(name);
+unsigned int ADJList::find(const string& Name) const{
+	unsigned int idx = hashFunc(Name);
+	unsigned int id2 = doublehash(Name);
 	unsigned int original = idx;
 	bool should_probe = true;
 	while (should_probe){
-		if (list[idx] != NULL && list[idx]->first == name.name){
+		if (list[idx] != NULL && list[idx]->first == Name.name){
 			return idx;
 		}
 		idx = (idx + id2) % size;

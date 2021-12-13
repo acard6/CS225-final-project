@@ -11,6 +11,9 @@
 /*
 	Adjacency List
 */
+bool TestSuite::smallADJListComparison(){
+
+}
 
 /*
 	Route Rendering

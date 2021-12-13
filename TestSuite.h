@@ -1,9 +1,11 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include "Airport.h"
 #include "Route.h"
+#include "adjList.h"
 
 /*
 	Data import
@@ -18,6 +20,8 @@ bool PngAirportComparison(int n);
 /*
 	Adjacency List
 */
+
+bool smallADJListComparison();
 
 /*
 	Route Rendering

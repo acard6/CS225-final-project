@@ -43,24 +43,6 @@ class ADJList{
         double radius; //earths in kilometers
         double toRad; // multiplier conversion from degrees to radians 
 
-    public:
-        /** adds the edges that each airport is connected to 
-        *   and the edge weight 
-        */
-        
-        /** 
-         * default constructor for the graph
-         * uses a doubly lined list as a hashtable.
-         * used code from dhhashtable from lab_hash
-         */
-        adjList();
-
-        //add an edge to an existing vertext
-        void addEdge(const Route& route);
-
-        //adds a vertext to the hash table
-        void addVertex(vector<Airport>& airportList);
-
         /**
          * hash function for so that airports are easy to look for and
          * so that fins doesnt take O(n^2)
@@ -78,7 +60,7 @@ class ADJList{
          * uses hash function to help locate where in the table an
          * airport is
          */
-        unsigned int find(const string& name) const;
+        unsigned int find(const string& Name) const;
 
         /**
          * calcultes how far each connected airport is from eachother
@@ -86,5 +68,25 @@ class ADJList{
          * https://en.wikipedia.org/wiki/Haversine_formula 
          */
         double distance (const Airport& air1, const Airport& air2) const;
+
+    public:
+        /** adds the edges that each airport is connected to 
+        *   and the edge weight 
+        */
+        
+        /** 
+         * default constructor for the graph
+         * uses a doubly lined list as a hashtable.
+         * used code from dhhashtable from lab_hash
+         */
+        ADJList();
+
+        //add an edge to an existing vertext
+        void addEdge(const Route& route);
+
+        //adds a vertext to the hash table
+        void addVertex(vector<Airport>& airportList);
+
+        edgeList getList(Airport& airport);
 
 };

@@ -23,6 +23,13 @@ int main()
     vector<Airport> vertices = ImportAirports(airportData);
     vector<Route> edges = ImportRoutes(routeData);
 
+    // the actual graph made from the adjacency list class
+    ADJList::ADJList graphList;
+    graphList.addVertex(vertices);
+    for (int i=0; i<edges.size(); i++){
+        graphList.addEdge(edge[i]);
+    }
+
     map<string, Airport> airports;
 
     for (auto a : vertices)
