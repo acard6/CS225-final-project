@@ -36,7 +36,8 @@ BFS::BFS(Airport start){
         }
     }
 }
-vector<Airport> Shortest(Airport a){
+vector<Airport> Shortest(Airport a,Airpot b){
+    std::vector<Airport> path;
     std::queue<Airport> q;
     std::vector<bool> v;
     int dist[7699];
@@ -75,7 +76,19 @@ vector<Airport> Shortest(Airport a){
             }
         }
     }
+    stack<Airport> stack;
+    int i = find(b.name);
+    while(previous[i]!= -1){
+        stack.push(previous[i]);
+        int temp = find(previous[i].name);
+        i = temp;
+    }
+    stack.push(previous[find(a.name)]);
+    for(unsigned int i = 0;i<stack.size();i++){
+        path.push(stack.top());
+        stack.pop();
+    }
 
-return previous;
+    return path;
 }
 
