@@ -56,11 +56,6 @@ class ADJList{
 
         unsigned int doubleHash(const string& name);
         
-        /**
-         * uses hash function to help locate where in the table an
-         * airport is
-         */
-        unsigned int find(const string& Name) const;
 
         /**
          * calcultes how far each connected airport is from eachother
@@ -80,6 +75,12 @@ class ADJList{
          * used code from dhhashtable from lab_hash
          */
         ADJList();
+
+        /**
+         * uses hash function to help locate where in the table an
+         * airport is
+         */
+        unsigned int find(const string& Name) const;
 
         //add an edge to an existing vertext
         void addEdge(const Route& route);
