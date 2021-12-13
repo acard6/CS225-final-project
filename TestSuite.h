@@ -1,5 +1,12 @@
 #pragma once
 
+<<<<<<< HEAD
+#include <string>
+#include <vector>
+#include <iostream>
+
+=======
+>>>>>>> 5cf3d4db78c6952f155cb787857be8a827836cbc
 #include "Airport.h"
 #include "DataImport.h"
 #include "Route.h"
@@ -25,12 +32,12 @@ bool PngAirportComparison(int n);
 	Adjacency List
 */
 
-bool smallADJListComparison();
+void smallADJList();
 
 /*
 	Route Rendering
 */
-bool PngAirportComparison(int n);
+bool PngAirportComparison();
 
 /*
 	Graph Coloring
