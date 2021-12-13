@@ -9,6 +9,8 @@
 #include "Airport.h"
 #include "adjList.h"
 
+using namespace std;
+
 
 class BFS{
 public:
@@ -18,9 +20,9 @@ public:
   vector<Airport> Shortest(Airport a, Airport b);
 
 private:
-  std::queue<Airport> queue_;
+  queue<Airport> queue_;
   Airport start_;
-  std::vector<bool> visited;
+  vector<bool> visited;
 };
 
 #include "BFS.cpp"

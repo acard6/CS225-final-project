@@ -9,7 +9,7 @@
 
 BFS::BFS(const Airport& start){
     ADJList graph = ADJList();
-    std::vector<Airport> path;
+    vector<Airport> path;
     start_ = start;
     queue_.push(start_);
     for(int i =0; i<7699; i++){
@@ -38,11 +38,11 @@ BFS::BFS(const Airport& start){
 }
 vector<Airport> BFS::Shortest(Airport a,Airport b){
     ADJList graph = ADJList();
-    std::vector<Airport> path;
-    std::queue<Airport> q;
-    std::vector<bool> v;
+    vector<Airport> path;
+    queue<Airport> q;
+    vector<bool> v;
     int dist[7699];
-    std::vector<Airport> previous;
+    vector<Airport> previous;
     for(int i = 0;i<7699;i++){
         dist[i] = INFINITY;
         previous.push_back(NULL);
