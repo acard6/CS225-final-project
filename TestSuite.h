@@ -1,14 +1,19 @@
 #pragma once
 
-#include <string>
-
 #include "Airport.h"
+#include "DataImport.h"
 #include "Route.h"
+
+#include <iostream>
 
 /*
 	Data import
 */
-bool DataImportAtNTest(int n, string testString);
+//Compare the nth value in the dataset to the test airport
+bool TestAirportImport(int n, Airport* airport);
+
+//Compare the nth value in the dataset to the test route
+bool TestRouteImport(int n, Route* route);
 
 /*
 	PNG Airport tests

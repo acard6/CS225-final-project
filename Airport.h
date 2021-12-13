@@ -18,4 +18,6 @@ class Airport
         Airport();
         Airport(string name, string city, string country, string code,
                 double latitude, double longitude);
+
+        operator==(const Airport& rhs);
 };
