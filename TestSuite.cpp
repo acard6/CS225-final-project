@@ -30,6 +30,9 @@ bool TestRouteImport(int n, Route* route)
 /*
 	Adjacency List
 */
+bool TestSuite::smallADJListComparison(){
+
+}
 
 /*
 	Route Rendering

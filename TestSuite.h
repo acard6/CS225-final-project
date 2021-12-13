@@ -3,6 +3,7 @@
 #include "Airport.h"
 #include "DataImport.h"
 #include "Route.h"
+#include "adjList.h"
 
 #include <iostream>
 
@@ -23,6 +24,8 @@ bool PngAirportComparison(int n);
 /*
 	Adjacency List
 */
+
+bool smallADJListComparison();
 
 /*
 	Route Rendering
