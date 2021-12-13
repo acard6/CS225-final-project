@@ -1,7 +1,7 @@
 #include "adjList.h"
 #include "cs225/PNG.h"
 #include "TestSuite.h"
-#include "Map.h"
+#include "PngMap.h"
 #include <iostream>
 #include <map>
 
@@ -16,10 +16,10 @@ int main()
     vector<Route> edges = ImportRoutes(routeData);
 
     // the actual graph made from the adjacency list class
-    ADJList::ADJList graphList;
+    ADJList graphList;
     graphList.addVertex(vertices);
     for (int i=0; i<edges.size(); i++){
-        graphList.addEdge(edge[i]);
+        graphList.addEdge(edges[i]);
     }
 
     return 0;

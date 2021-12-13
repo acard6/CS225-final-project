@@ -8,7 +8,7 @@ Airport::Airport(string name, string city, string country, string code,
                     name(name), city(city), country(country), code(code),
                     latitude(latitude), longitude(longitude) {}
 
-Airport::operator==(const Airport& rhs)
+bool Airport::operator==(const Airport& rhs)
 {
     return name == rhs.name &&
             city == rhs.city &&

@@ -7,9 +7,8 @@
 #include <vector>
 #include <map>
 
-#include "BFS.h"
-
-BFS::BFS(Airport start){
+BFS::BFS(const Airport& start){
+    ADJList graph = DJList();
     std::vector<Airport> path;
     start_ = start;
     queue_.push(start_);
@@ -23,20 +22,21 @@ BFS::BFS(Airport start){
         queue_.pop();
 
         edgeList templ = getList(node);
-        edge temp = templ.head;
+        edge temp = templ.getHead();
         while(temp != NULL){
             if(visited[find(temp.destination.name)]==false){
                 visited[find(temp.destination.name)] == true;
                 queue_.push(temp.destination);
-                temp.next;
+                temp = temp.next;
             }
             else{
-                temp.next;
+                temp = temp.next;
             }
         }
     }
 }
-vector<Airport> Shortest(Airport a){
+vector<Airport> BFS::Shortest(Airport a,Airport b){
+    std::vector<Airport> path;
     std::queue<Airport> q;
     std::vector<bool> v;
     int dist[7699];
@@ -54,7 +54,7 @@ vector<Airport> Shortest(Airport a){
         Airport node = q.front();
         q.pop();
         edgeList templ = getList(node);
-        edge temp = templ.head;
+        edge temp = templ.getHead();
         while(temp != NULL){
             if(v[find(temp.destination.name])==false){
                 if((dist[find(node.name)] + temp.weight) < dist[find(temp.destination.name)]){
@@ -62,20 +62,36 @@ vector<Airport> Shortest(Airport a){
                     previous[find(temp.destination.name)] = node;
                     q.push(temp.destination);
                     temp.next;
+                    dist[find(temp.destination.name)] =+ temp.weight;
+                    previous[find(temp.destination.name)] = *node;
+                    q.push(temp.destination);
+                    temp = temp.next;
                 }
                 else{
                     dist[find(node.name)] =+ temp.weight;
                     previous[find(node.name)] = temp.destination;
                     q.push(temp.destination);
-                    temp.next
+                    temp = temp.next;
                 }
             }
             else{
-                temp.next;
+                temp = temp.next;
             }
         }
     }
+    stack<Airport> stack;
+    int i = find(b.name);
+    while(previous[i]!= -1){
+        stack.push(previous[i]);
+        int temp = find(previous[i].name);
+        i = temp;
+    }
+    stack.push(previous[find(a.name)]);
+    for(unsigned int i = 0;i<stack.size();i++){
+        path.push(stack.top());
+        stack.pop();
+    }
 
-return previous;
+    return path;
 }
 
