@@ -1,35 +1,38 @@
-output: adjList.o Airport.o DataImport.o main.o Map.o Route.o TestSuite.o HSLAPixel.o PNG.o lodepng.o
-	g++ adjList.o Airport.o DataImport.o main.o Map.o Route.o TestSuite.o HSLAPixel.o PNG.o lodepng.o -o project
+output: adjList.o Airport.o BFS.o DataImport.o main.o PngMap.o Route.o TestSuite.o HSLAPixel.o PNG.o lodepng.o
+	g++ adjList.o Airport.o BFS.o DataImport.o main.o PngMap.o Route.o TestSuite.o HSLAPixel.o PNG.o lodepng.o -o project
 
 adjList.o: adjList.cpp adjList.h
-	g++ -c adjList.cpp
+	g++ -std=c++11 -c adjList.cpp
 
 Airport.o: Airport.cpp Airport.h
-	g++ -c Airport.cpp
+	g++ -std=c++11 -c Airport.cpp
+
+BFS.o: BFS.o BFS.h
+	g++ -std=c++11 -c BFS.cpp
 
 DataImport.o: DataImport.cpp DataImport.h
-	g++ -c DataImport.cpp
+	g++ -std=c++11 -c DataImport.cpp
 
 main.o: main.cpp
-	g++ -c main.cpp
+	g++ -std=c++11 -c main.cpp
 
-Map.o: Map.cpp Map.h
-	g++ -c Map.cpp
+Map.o: PngMap.cpp PngMap.h
+	g++ -std=c++11 -c PngMap.cpp
 
 Route.o: Route.cpp Route.h
-	g++ -c Route.cpp
+	g++ -std=c++11 -c Route.cpp
 
 TestSuite.o: TestSuite.cpp TestSuite.h
-	g++ -c TestSuite.cpp
+	g++ -std=c++11 -c TestSuite.cpp
 
 HSLAPixel.o: HSLAPixel.cpp HSLAPixel.h
-	g++ -c HSLAPixel.cpp
+	g++ -std=c++11 -c HSLAPixel.cpp
 
 PNG.o: PNG.cpp PNG.h
-	g++ -c PNG.cpp
+	g++ -std=c++11 -c PNG.cpp
 
 lodepng.o: lodepng.cpp lodepng.h
-	g++ -c lodepng.cpp
+	g++ -std=c++11 -c lodepng.cpp
 
 clean:
 	rm *.o project
