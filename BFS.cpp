@@ -21,10 +21,10 @@ BFS::BFS(const Airport& start){
         Airport node* = queue_.front();
         
 
-        edgeList templ = graph.getList(node);
+        edgeList templ = graph.getList(node.name);
         edge temp = templ.getHead();
         while(temp != NULL){
-            if(visited[find(temp.destination.name)]==false){
+            if(visited[find(temp.destination.name)] == false){
                 visited[find(temp.destination.name)] == true;
                 queue_.push(temp.destination);
                 temp = temp.next;
@@ -54,7 +54,7 @@ vector<Airport> BFS::Shortest(Airport a,Airport b){
     q.push(a);
     while(!q.empty()){
         Airport node* = q.front();
-        edgeList templ = graph.getList(node);
+        edgeList templ = graph.getList(node.name);
         edge temp = templ.getHead();
         while(temp != NULL){
             if(v[find(temp.destination.name])==false){
