@@ -59,20 +59,20 @@ vector<Airport> BFS::Shortest(Airport a,Airport b){
         while(temp != NULL){
             if(v[find(temp.destination.name])==false){
                 if((dist[find(node.name)] + temp.weight) < dist[find(temp.destination.name)]){
-                    dist[find(node.name)] =+ temp.weight;
-                    previous[find(temp.destination.name)] = node;
+                    dist[find(temp.destination.name)] =+ temp.weight;
+                    previous[find(temp.destination.name)] = *node;
                     q.push(temp.destination);
-                    temp.next;
+                    temp = temp.next;
                 }
                 else{
                     dist[find(node.name)] =+ temp.weight;
                     previous[find(node.name)] = temp.destination;
                     q.push(temp.destination);
-                    temp.next
+                    temp = temp.next;
                 }
             }
             else{
-                temp.next;
+                temp = temp.next;
             }
         }
     }
