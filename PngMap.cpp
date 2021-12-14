@@ -20,8 +20,6 @@ PngMap::PngMap(const vector<Airport>& airportList)
 
     airportDot = HSLAPixel(0, 1, .50, 1); //yellow
     optimalRoute = HSLAPixel(104, 1, .50, 1); //green
-    secondBestRoute = HSLAPixel(181, 1, .50, 1); //blue
-    worstRoute = HSLAPixel(0, 1, .50, 1); //red
 }
 
 void PngMap::createMap(vector<Route> routes, string filename)
@@ -62,7 +60,7 @@ void PngMap::plotRoutes(vector<Route> routes)
 {
     if(routes.empty()) return;
     
-    for(int i = 0; i < routes.size(); ++i)
+    for(size_t i = 0; i < routes.size(); ++i)
     {
         Airport source = airports[routes[i].source];
         Airport dest = airports[routes[i].destination];

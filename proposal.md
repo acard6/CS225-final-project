@@ -4,9 +4,9 @@ Leading question:
 
 Given a set of known flight paths we want to be able to:
 
--Find the shortest path between two chosen points
--highlight all the shortest paths
--Output that path onto a world map
+Find the shortest path between two chosen points
+highlight all the shortest paths
+Output that path onto a world map
 
 Dataset Acquisition and Processing:
 
@@ -34,8 +34,7 @@ sphere is the globe of the earth. Distance will be found by using the Haversine 
 the weight of the edges. The expected runtime of this algoritm is O(E+Vlog(V)).
         
 Graph coloring - Develop an algorithm that colors the edges of the output such that the shortest path is
-highlighted and every other path is colored by determing how much of an increase it is from the shortest
-path by a given tolerence. Input will be a set of flight paths, and the output would be a graph with
+highlighted. Input will be a set of flight paths, and the output would be a graph with
 edges colored to visualize the optimal paths. The expected runtime of this graph coloring algorithm is
 O(V^2+E).
 

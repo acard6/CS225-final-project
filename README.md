@@ -15,6 +15,10 @@ Data is formatted in the following way in the CSV file:
 
 Source,Destination,Number of stops
 
+#### Linkage
+
+![This is an image](https://github-dev.cs.illinois.edu/cs225-fa21/sarobin2-acard6-ob5-jgharib2/blob/main/Report/diagram.png)
+
 #### Code Base Layout
 
 The main components of the project are included in the base of the
@@ -104,5 +108,16 @@ normal with the argument PngRouteComparison (1, 10, 100, or 1000)
 The function returns TRUE if the output PNG is exactly the same as the test
 PNG and FALSE otherwise.
 
+Output files are placed in the testPNGs folder with the naming convention
+of ("airport" or "route") + (n) + ".png"
+
 ###### Graph Coloring
 
+For the graph coloring test, call
+PngSimpleRouteHighlightTest() or PngComplexRouteHighlightTest().
+To call this, execute the program as normal with the argument
+PngSimpleRouteHighlightTest() or PngComplexRouteHighlightTest()
+The function returns TRUE if there were no errors, and FALSE if there were.
+
+Output files are placed in the testPNGs folder with the naming convention
+of ("simple" or "complex") + "HighlightTest.png"
