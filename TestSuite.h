@@ -5,6 +5,7 @@
 #include "Route.h"
 #include "adjList.h"
 #include "PngMap.h"
+#include "BFS.h"
 
 #include <iostream>
 
