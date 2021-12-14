@@ -77,12 +77,12 @@ vector<Airport> BFS::Shortest(Airport* a,Airport* b){
     }
     stack<Airport> stack;
     int i = graph.find(b->name);
-    while(!(previous[i] == a)){
+    while(!(previous[i].name == a->name)){
         stack.push(previous[i]);
         int temp = graph.find(previous[i].name);
         i = temp;
     }
-    stack.push(a);
+    stack.push(&a);
     //stack.push(previous[graph.find(a->name)]);
     for(unsigned int i = 0;i<stack.size();i++){
         path.push_back(stack.top());
