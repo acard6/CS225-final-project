@@ -123,8 +123,10 @@
     <ClInclude Include="TestSuite.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\airports.dat" />
-    <None Include="data\routes.dat" />
+    <None Include="data\airports.csv" />
+    <None Include="data\routes.csv" />
+    <None Include="data\smallairport.csv" />
+    <None Include="data\smallroutes.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,12 +7,6 @@ using namespace std;
 
 #include "DataImport.h"
 
-/*
-    String split function is from the following stack overflow
-    question from user RikuPotato:
-    https://stackoverflow.com/questions/14265581/parse-split-a-string-in-c-using-string-delimiter-standard-c
-*/
-
 vector<string> Split(string str, string delimiter)
 {
     vector<string> splitStrings;

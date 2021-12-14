@@ -22,7 +22,9 @@ that stores the named information in the dataset (airport name, latitude and lon
 city and country, etc.). The strings are split with a function that mimics that of
 python string split using a delimiter.
 
-Alan Cardiel: Graph building
+Alan Cardiel: Laid out the basic ground work for wha the graph data structure would contain
+along with some functions and variables. The first function completed was calculating the
+distance between 2 points using havsine function.
 
 #### Week 5:
 
@@ -31,6 +33,9 @@ Sasha Bilenkyi: Start working on the final presentation slides.
 Justin Gharib: BFS search/Shortest path
 
 Sean Womack: Rendering, Dev Log, README, Graph coloring
+
+Alan Cardiel: implemented the remainder of the graph data structure and tested out result on
+a small scale
 
 All: Test suite //Completed alongside other goals
 

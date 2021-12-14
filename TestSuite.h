@@ -56,22 +56,34 @@ ADJList* smallADJList() {
 		graphList->addEdge(edges[i]);
 	}
 	return graphList;
-	/**
-	for (size_t i = 0; i < graphList->size(); i++) {
-		if (graphList->list[i] != NULL) {
-			ADJList::edgeList list = graphList->list[i]->second;
-			ADJList::edge* temp = list.getHead();
-			for (int j = 0; j < list.getSize() - 1; j++) {
-				temp = temp->next;
-			}
+}
+
+ADJList* fullADJList()
+{
+	string airportData = "./data/airports.csv";
+	string routeData = "./data/routes.csv";
+
+	vector<Airport> vertices = ImportAirports(airportData);
+	vector<Route> edges = ImportRoutes(routeData);
+
+	ADJList* graphList = new ADJList();
+	graphList->addVertex(vertices);
+	for (size_t i = 0; i < edges.size(); i++) {
+		if (i >= 170)
+		{
+			int x = 0;
+			x++;
 		}
+		graphList->addEdge(edges[i]);
 	}
-	*/
+	return graphList;
 }
 
 /*
 	PNG Airport tests
 */
+//Compare the first 1, 10, 100, or 1000 airports in the dataset with
+//the expected output
 bool PngAirportComparison(int n)
 {
 	if(n < 5) n = 1;
@@ -132,6 +144,8 @@ bool PngAirportComparison(int n)
 /*
 	Route Rendering
 */
+//Compare the first 1, 10, 100, or 1000 routes in the dataset with
+//the expected output
 bool PngRouteComparison(int n)
 {
 	if(n < 5) n = 1;
@@ -186,8 +200,8 @@ bool PngRouteComparison(int n)
 /*
 	Graph Coloring
 */
-
-/*
+//Calculate a route between two nearby airports and compare the output
+//with the expected output image.
 bool PngSimpleRouteHighlightTest()
 {
 	Airport source, dest;
@@ -205,8 +219,10 @@ bool PngSimpleRouteHighlightTest()
 	dest.latitude = 49.831699;
 	dest.longitude = -92.744202;
 	
-	BFS bfs(source);
-	vector<Airport> path = bfs.Shortest(source, dest);
+	ADJList* graph = fullADJList();
+
+	BFS bfs(graph, source);
+	vector<Airport> path = bfs.Shortest(graph, source, dest);
 
 	PngMap pngMap(path);
 	pngMap.createMap(vector<Route>(), "./testPNGs/simpleHighlightTest.png");
@@ -214,6 +230,8 @@ bool PngSimpleRouteHighlightTest()
 	return false;
 }
 
+//Calculate a route between two airports that are not nearby and compare the
+//output with the epected output.
 bool PngComplexRouteHighlightTest()
 {
 	Airport source, dest;
@@ -231,12 +249,13 @@ bool PngComplexRouteHighlightTest()
 	dest.latitude = -28.575001;
 	dest.longitude = 16.5333;
 	
-	BFS bfs(source);
-	vector<Airport> path = bfs.Shortest(source, dest);
+	ADJList* graph = fullADJList();
+
+	BFS bfs(graph, source);
+	vector<Airport> path = bfs.Shortest(graph, source, dest);
 
 	PngMap pngMap(path);
 	pngMap.createMap(vector<Route>(), "./testPNGs/complexHighlightTest.png");
 	
 	return false;
 }
-*/
