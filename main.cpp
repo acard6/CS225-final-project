@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     vector<Route> edges = ImportRoutes(routeData);
 
     // the small graph made for testing
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     
 =======
@@ -20,22 +21,42 @@ int main(int argc, char *argv[])
     
     /*
     vector<string> places = {"ORD","ATL","DFW","DEN","JFK","DTW","SFO","ORL","SLC","LAX"};
+=======
+    ADJList* graphList = fullADJList();
+    /*vector<string> places = {"ORD","ATL","DFW","DEN","JFK","DTW","SFO","ORL","SLC","LAX"};
+>>>>>>> Stashed changes
     for (size_t i=0; i<places.size(); i++){
         
-        ADJList::edge* head = graphList->getList(places[i]).getHead();
+        ADJList::edge* head = graphList.getList(places[i]).getHead();
 
         string name = head->destination.name;
         cout << name << endl;
+    }*/
+
+    BFS traversal(graphList, vertices[1]);
+
+    vector<Airport> shortestpath = traversal.Shortest(graphList, vertices[1], vertices[8]);
+    vector<Route> R;
+    for (unsigned int i = 0; i < (shortestpath.size() - 2); i++) {
+        R.push_back(Route(shortestpath[i].code, shortestpath[i + 1].code, 0));
     }
     */
 
+<<<<<<< Updated upstream
 >>>>>>> 6432fec26b577e873f7b8bf3c3bc899bed15a89b
+=======
+    PngMap pngMap(shortestpath);
+    pngMap.createMap(R, "shortestpathtest.png");
+
+
+>>>>>>> Stashed changes
     if(argc >= 2)
     {
         string param(argv[1]);
         bool test = false;
 
         //Adjacency List arguments
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         if(param == "adjList"){
 
@@ -51,6 +72,9 @@ int main(int argc, char *argv[])
 =======
         
 >>>>>>> 6432fec26b577e873f7b8bf3c3bc899bed15a89b
+=======
+        
+>>>>>>> Stashed changes
 
         //Graph arguments
         if(param == "PlotFull")
@@ -74,13 +98,17 @@ int main(int argc, char *argv[])
             PngMap pngMap(subAirports);
             pngMap.createMap(subRoutes, argv[3]);
         }
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         /**
+=======
+        
+>>>>>>> Stashed changes
         if(param == "BFS")
         {
             
             
-            BFS traversal = BFS(graphList,vertices[1]);
+            BFS traversal(graphList,vertices[1]);
             //Airport a1 = graphList.getList("Chicago O'Hare International Airport").getHead();
             
             ADJList::edgeList templ = graphList.getList("Chicago O'Hare International Airport");

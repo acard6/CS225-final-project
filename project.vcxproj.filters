@@ -82,10 +82,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\airports.dat">
+    <None Include="data\airports.csv">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="data\routes.dat">
+    <None Include="data\routes.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\smallairport.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\smallroutes.csv">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

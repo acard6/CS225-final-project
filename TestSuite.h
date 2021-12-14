@@ -69,6 +69,38 @@ ADJList* smallADJList() {
 	*/
 }
 
+ADJList* fullADJList()
+{
+	string airportData = "./data/airports.csv";
+	string routeData = "./data/routes.csv";
+
+	vector<Airport> vertices = ImportAirports(airportData);
+	vector<Route> edges = ImportRoutes(routeData);
+
+	ADJList* graphList = new ADJList();
+	graphList->addVertex(vertices);
+	for (size_t i = 0; i < edges.size(); i++) {
+		if (i >= 170)
+		{
+			int x = 0;
+			x++;
+		}
+		graphList->addEdge(edges[i]);
+	}
+	return graphList;
+	/**
+	for (size_t i = 0; i < graphList->size(); i++) {
+		if (graphList->list[i] != NULL) {
+			ADJList::edgeList list = graphList->list[i]->second;
+			ADJList::edge* temp = list.getHead();
+			for (int j = 0; j < list.getSize() - 1; j++) {
+				temp = temp->next;
+			}
+		}
+	}
+	*/
+}
+
 /*
 	PNG Airport tests
 */
@@ -186,6 +218,7 @@ bool PngRouteComparison(int n)
 /*
 	Graph Coloring
 */
+<<<<<<< Updated upstream
 
 /*
 bool PngSimpleRouteHighlightTest()
@@ -240,3 +273,56 @@ bool PngComplexRouteHighlightTest()
 	return false;
 }
 */
+=======
+//bool PngSimpleRouteHighlightTest()
+//{
+//	Airport source, dest;
+//	source.name = "Hudson Bay Airport";
+//	source.city = "Hudson Bay";
+//	source.country = "Canada";
+//	source.code = "YHB";
+//	source.latitude = 52.81669998;
+//	source.longitude = -102.310997;
+//
+//	dest.name = "Dryden Regional Airport";
+//	dest.city = "Dryden";
+//	dest.country = "Canada";
+//	dest.code = "YHD";
+//	dest.latitude = 49.831699;
+//	dest.longitude = -92.744202;
+//
+//	BFS bfs(source);
+//	vector<Airport> path = bfs.Shortest(source, dest);
+//
+//	PngMap pngMap(path);
+//	pngMap.createMap(vector<Route>(), "./testPNGs/simpleHighlightTest.png");
+//
+//	return false;
+//}
+//
+//bool PngComplexRouteHighlightTest()
+//{
+//	Airport source, dest;
+//	source.name = "Hudson Bay Airport";
+//	source.city = "Hudson Bay";
+//	source.country = "Canada";
+//	source.code = "YHB";
+//	source.latitude = 52.81669998;
+//	source.longitude = -102.310997;
+//
+//	dest.name = "Alexander Bay Airport";
+//	dest.city = "Alexander Bay";
+//	dest.country = "South Africa";
+//	dest.code = "ALJ";
+//	dest.latitude = -28.575001;
+//	dest.longitude = 16.5333;
+//
+//	BFS bfs(source);
+//	vector<Airport> path = bfs.Shortest(source, dest);
+//
+//	PngMap pngMap(path);
+//	pngMap.createMap(vector<Route>(), "./testPNGs/complexHighlightTest.png");
+//
+//	return false;
+//}
+>>>>>>> Stashed changes
