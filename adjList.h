@@ -25,7 +25,7 @@ class ADJList{
         */
 
 
-        size_t length;    //size of the list
+        int length;    //size of the list
 
         /**
          * hash function for so that airports are easy to look for and
@@ -96,7 +96,7 @@ class ADJList{
         void addVertex(vector<Airport>& airportList);
 
         //gets the size of the list
-        size_t size();
+        int size();
 
         //for finding things at an index in the class
         edgeList operator[](const int& key);
@@ -109,6 +109,7 @@ class ADJList{
 
         edgeList getList(Airport& airport);
         edgeList getList(string& Name);
+        edgeList getList(int index);
 
         /** pair of doubly liked airport and linked edges */ 
         std::pair<string, edgeList>** list;  

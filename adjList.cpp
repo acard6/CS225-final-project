@@ -13,16 +13,22 @@ using namespace std;
 ADJList::ADJList(){
 	length = 7699;
 	list = new std::pair<string,edgeList>*[length];
-	for (size_t i=0; i<length; i++){
+	for (int i=0; i<length; i++){
 		list[i] = NULL;
 	}
 }
 
-size_t ADJList::size(){return length;}
+int ADJList::size(){return length;}
 
 ADJList::edgeList ADJList::operator[](const int& key){
     //int idx = find(to_string(key));
     return list[key]->second; //returns the key which is a string
+}
+
+ADJList::edgeList ADJList::getList(int index){
+	int idx = index % 7699;
+	return list[idx]->second;
+
 }
 
 ADJList::edgeList ADJList::getList(Airport& airport){

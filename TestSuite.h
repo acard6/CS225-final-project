@@ -202,13 +202,13 @@ bool PngSimpleRouteHighlightTest()
 	dest.code = "YHD";
 	dest.latitude = 49.831699;
 	dest.longitude = -92.744202;
-
+	
 	BFS bfs(source);
 	vector<Airport> path = bfs.Shortest(source, dest);
 
 	PngMap pngMap(path);
 	pngMap.createMap(vector<Route>(), "./testPNGs/simpleHighlightTest.png");
-
+	
 	return false;
 }
 
@@ -228,12 +228,12 @@ bool PngComplexRouteHighlightTest()
 	dest.code = "ALJ";
 	dest.latitude = -28.575001;
 	dest.longitude = 16.5333;
-
+	
 	BFS bfs(source);
 	vector<Airport> path = bfs.Shortest(source, dest);
 
 	PngMap pngMap(path);
 	pngMap.createMap(vector<Route>(), "./testPNGs/complexHighlightTest.png");
-
+	
 	return false;
 }
