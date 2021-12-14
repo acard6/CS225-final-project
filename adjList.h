@@ -69,7 +69,11 @@ class ADJList{
                 edge* getHead(){return head;}
                 int getSize(){return size;}
                 void inc(){size +=1;}
-                void header(edge newHead){*head = newHead;}
+                void header(edge newHead)
+                {
+                    head = new edge();
+                    *head = newHead;
+                }
         };
 
         /** 
