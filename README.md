@@ -17,7 +17,7 @@ Source,Destination,Number of stops
 
 #### Linkage
 
-![This is an image](diagram.png)
+![This is an image](https://github-dev.cs.illinois.edu/cs225-fa21/sarobin2-acard6-ob5-jgharib2/blob/main/Report/diagram.png)
 
 #### Code Base Layout
 
