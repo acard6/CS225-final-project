@@ -12,13 +12,8 @@
 
 using namespace std;
 
-<<<<<<< Updated upstream
-BFS::BFS(ADJList graph,Airport start){
-    
-=======
 BFS::BFS(ADJList* graph,Airport start){
-    queue<Airport> queue_;
->>>>>>> Stashed changes
+    
     queue_.push(start);
     for(int i =0; i<7699; i++){
         visited.push_back(false);

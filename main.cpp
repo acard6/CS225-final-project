@@ -8,56 +8,12 @@ int main(int argc, char *argv[])
     vector<Airport> vertices = ImportAirports(airportData);
     vector<Route> edges = ImportRoutes(routeData);
 
-    // the small graph made for testing
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-    
-=======
-    ADJList graphList = ADJList();
-	graphList.addVertex(vertices);
-	for (size_t i = 0; i < edges.size(); i++) {
-		graphList.addEdge(edges[i]);
-	}
-    
-    /*
-    vector<string> places = {"ORD","ATL","DFW","DEN","JFK","DTW","SFO","ORL","SLC","LAX"};
-=======
-    ADJList* graphList = fullADJList();
-    /*vector<string> places = {"ORD","ATL","DFW","DEN","JFK","DTW","SFO","ORL","SLC","LAX"};
->>>>>>> Stashed changes
-    for (size_t i=0; i<places.size(); i++){
-        
-        ADJList::edge* head = graphList.getList(places[i]).getHead();
-
-        string name = head->destination.name;
-        cout << name << endl;
-    }*/
-
-    BFS traversal(graphList, vertices[1]);
-
-    vector<Airport> shortestpath = traversal.Shortest(graphList, vertices[1], vertices[8]);
-    vector<Route> R;
-    for (unsigned int i = 0; i < (shortestpath.size() - 2); i++) {
-        R.push_back(Route(shortestpath[i].code, shortestpath[i + 1].code, 0));
-    }
-    */
-
-<<<<<<< Updated upstream
->>>>>>> 6432fec26b577e873f7b8bf3c3bc899bed15a89b
-=======
-    PngMap pngMap(shortestpath);
-    pngMap.createMap(R, "shortestpathtest.png");
-
-
->>>>>>> Stashed changes
     if(argc >= 2)
     {
         string param(argv[1]);
         bool test = false;
 
         //Adjacency List arguments
-<<<<<<< Updated upstream
-<<<<<<< HEAD
         if(param == "adjList"){
 
             ADJList* graphList = new ADJList();
@@ -65,16 +21,10 @@ int main(int argc, char *argv[])
             for (size_t i=0; i<edges.size(); i++){
                 graphList->addEdge(edges[i]);
             }
-            string place = "ORD";
-            string ohare = graphList->getList(place).getHead()->destination.code;
-            cout << ohare << endl;
+            string place = argv[2];
+            string dest = graphList->getList(place).getHead()->destination.name;
+            cout << dest << endl;
         }
-=======
-        
->>>>>>> 6432fec26b577e873f7b8bf3c3bc899bed15a89b
-=======
-        
->>>>>>> Stashed changes
 
         //Graph arguments
         if(param == "PlotFull")
@@ -98,38 +48,15 @@ int main(int argc, char *argv[])
             PngMap pngMap(subAirports);
             pngMap.createMap(subRoutes, argv[3]);
         }
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-        /**
-=======
-        
->>>>>>> Stashed changes
-        if(param == "BFS")
-        {
-            
-            
-            BFS traversal(graphList,vertices[1]);
-            //Airport a1 = graphList.getList("Chicago O'Hare International Airport").getHead();
-            
-            ADJList::edgeList templ = graphList.getList("Chicago O'Hare International Airport");
-            ADJList::edge* temp = templ.getHead();
-            for(unsigned int i = 0;i<templ.getSize();i++){
-                cout << temp->destination.name << " - " << temp->weight << endl;
-                temp = temp->next;
-            }
-            
-            //BFS traversal = BFS(graphList,vertices[1]);
-            
-            vector<Airport> shortestpath = traversal.Shortest(graphList,vertices[12],vertices[48]);
-=======
         
         if(param == "BFS")
         {
             //SEGFAULT When going into BFS(ADJList graph,Airport start) due to NULL graph being past in 
             //causing an out of bounds of idx -1 when going into visited vector
-            BFS traversal = BFS(graphList,vertices[3630]);
+            ADJList* graphList = new ADJList();
+
+            BFS traversal = BFS(graphList,vertices[1]);
             vector<Airport> shortestpath = traversal.Shortest(graphList,vertices[3630],vertices[429]);
->>>>>>> 6432fec26b577e873f7b8bf3c3bc899bed15a89b
             vector<Route> R;
             for(unsigned int i = 0;i<(shortestpath.size()-2);i++){
                 R.push_back(Route(shortestpath[i].code,shortestpath[i+1].code,0));
@@ -138,7 +65,6 @@ int main(int argc, char *argv[])
             PngMap pngMap(shortestpath);
             pngMap.createMap(R,"shortestpathtest.png");
         }
-        */
        
         //Test arguments
         if(param == "TestArgs") cout << "Test successful" << endl;

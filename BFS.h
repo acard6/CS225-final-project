@@ -20,7 +20,10 @@ public:
   vector<Airport> Shortest(ADJList* graph,Airport a, Airport b);
 
 private:
+  //Queue to store airports before probing their edges
   queue<Airport> queue_;
+
+  //Vector of booleans corresponding to the visited edges
   vector<bool> visited;
 };
 

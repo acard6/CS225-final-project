@@ -3,6 +3,9 @@
 
 #### Data Format
 
+Data is found in the data folder. Loading it in requires you to change the
+strings at the top of main.cpp.
+
 ###### Airports
 
 Data is formatted in the following way in the CSV file:
@@ -33,8 +36,8 @@ The class that holds the relevant information for each airport (name, city,
 country, airport code, latitude, and longitude).
 
 ###### BFS
-The class that supports functionality for a breadth-first search and Dijkstra's Algorithm on the
-adjList class.
+The class that supports functionality for a breadth-first search and
+Dijkstra's Algorithm on the adjList class.
 
 ###### DataImport
 A group of helper functions that import data from CSVs into vectors to be
@@ -92,6 +95,12 @@ otherwise.
 
 ###### Adjacency List
 
+To test the adjacency list, call adjList(). To call this, execute the program
+as normal with the argument
+adjList (3 letter airport code)
+The function will output the name of the desired airport once it is found,
+and -1 otherwise.
+
 ###### PNG Comparison
 
 For the airport output test, choose 1, 10, 100, or 1000 and call
@@ -112,6 +121,8 @@ Output files are placed in the testPNGs folder with the naming convention
 of ("airport" or "route") + (n) + ".png"
 
 ###### Graph Coloring
+
+**Currently does not work**
 
 For the graph coloring test, call
 PngSimpleRouteHighlightTest() or PngComplexRouteHighlightTest().
