@@ -69,6 +69,9 @@ vector<Airport> BFS::Shortest(Airport a,Airport b){
                     q.push(temp->destination);
                     temp = temp->next;
                 }
+                else{
+                    temp = temp->next;
+                }
             }
             else{
                 temp = temp->next;
