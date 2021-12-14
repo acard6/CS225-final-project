@@ -44,6 +44,34 @@ bool TestRouteImport(int n, string routeString)
 }
 
 /*
+	Adjacency List
+*/
+void smallADJList() {
+	string airportData = "./data/smallairport.csv";
+	string routeData = "./data/smallroutes.csv";
+
+	vector<Airport> vertices = ImportAirports(airportData);
+	vector<Route> edges = ImportRoutes(routeData);
+
+	ADJList* graphList = new ADJList();
+	graphList->addVertex(vertices);
+	for (size_t i = 0; i < edges.size(); i++) {
+		graphList->addEdge(edges[i]);
+	}
+
+	for (size_t i = 0; i < graphList->size(); i++) {
+		if (graphList->list[i] != NULL) {
+			ADJList::edgeList list = graphList->list[i]->second;
+			ADJList::edge* temp = list.getHead();
+			for (int j = 0; j < list.getSize() - 1; j++) {
+
+				temp = temp->next;
+			}
+		}
+	}
+}
+
+/*
 	PNG Airport tests
 */
 bool PngAirportComparison(int n)
@@ -101,34 +129,6 @@ bool PngAirportComparison(int n)
 	}
 
 	return false;
-}
-
-/*
-	Adjacency List
-*/
-void smallADJList() {
-	string airportData = "./data/smallairport.csv";
-	string routeData = "./data/smallroutes.csv";
-
-	vector<Airport> vertices = ImportAirports(airportData);
-	vector<Route> edges = ImportRoutes(routeData);
-
-	ADJList* graphList = new ADJList();
-	graphList->addVertex(vertices);
-	for (size_t i = 0; i < edges.size(); i++) {
-		graphList->addEdge(edges[i]);
-	}
-
-	for (size_t i = 0; i < graphList->size(); i++) {
-		if (graphList->list[i] != NULL) {
-			ADJList::edgeList list = graphList->list[i]->second;
-			ADJList::edge* temp = list.getHead();
-			for (int j = 0; j < list.getSize() - 1; j++) {
-
-				temp = temp->next;
-			}
-		}
-	}
 }
 
 /*

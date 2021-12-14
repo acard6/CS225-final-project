@@ -1,5 +1,3 @@
-Project Poposal sarobin2-acard6-ob5-jgharib2
-
 Leading question:
 
 Given a set of known flight paths we want to be able to:
@@ -27,8 +25,8 @@ Graph Algorithms
 Data Algorithms
 
 Shortest path - Develop an algorithm that will find the shortest path between two given points in the
-set using Floyd–Warshall algorithms. The Input would the graph of flight paths and the output would be
-all possible shortest paths between the chosen two points. For our shortest path algorithm the weighted
+set using dijkstra's algorithm. The Input would the graph of flight paths and the output would be all
+possible shortest paths between the chosen two points. For our shortest path algorithm the weighted
 edges would be defined as the distance between two points on the surface of a sphere. In this case the
 sphere is the globe of the earth. Distance will be found by using the Haversine formula to to determine
 the weight of the edges. The expected runtime of this algoritm is O(E+Vlog(V)).

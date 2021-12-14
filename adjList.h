@@ -69,7 +69,11 @@ class ADJList{
                 edge* getHead(){return head;}
                 int getSize(){return size;}
                 void inc(){size +=1;}
-                void header(edge newHead){*head = newHead;}
+                void header(edge newHead)
+                {
+                    head = new edge();
+                    *head = newHead;
+                }
         };
 
         /** 
@@ -107,5 +111,5 @@ class ADJList{
         edgeList getList(string& Name);
 
         /** pair of doubly liked airport and linked edges **/ 
-        std::pair<string, edgeList>** list;    
+        std::pair<string, edgeList>** list;  
 };
