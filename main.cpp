@@ -11,12 +11,17 @@ int main(int argc, char *argv[])
     vector<Airport> vertices = ImportAirports(airportData);
     vector<Route> edges = ImportRoutes(routeData);
 
-    // the actual graph made from the adjacency list class
-    ADJList graphList;
-    graphList.addVertex(vertices);
-    for (int i=0; i<edges.size(); i++){
-        graphList.addEdge(edges[i]);
+    // the small graph made for testing
+    ADJList* graphList = smallADJList();
+    vector<string> places = {"ORD","ATL","DFW","DEN","JFK","DTW","SFO","ORL","SLC","LAX"};
+    for (size_t i=0; i<places.size(); i++){
+        
+        ADJList::edge* head = graphList->getList(places[i]).getHead();
+
+        string name = head->destination.name;
+        cout << name << endl;
     }
+
 
     if(argc >= 2)
     {

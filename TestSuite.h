@@ -46,7 +46,7 @@ bool TestRouteImport(int n, string routeString)
 /*
 	Adjacency List
 */
-void smallADJList() {
+ADJList* smallADJList() {
 	string airportData = "./data/smallairport.csv";
 	string routeData = "./data/smallroutes.csv";
 
@@ -58,17 +58,18 @@ void smallADJList() {
 	for (size_t i = 0; i < edges.size(); i++) {
 		graphList->addEdge(edges[i]);
 	}
-
+	return graphList;
+	/**
 	for (size_t i = 0; i < graphList->size(); i++) {
 		if (graphList->list[i] != NULL) {
 			ADJList::edgeList list = graphList->list[i]->second;
 			ADJList::edge* temp = list.getHead();
 			for (int j = 0; j < list.getSize() - 1; j++) {
-
 				temp = temp->next;
 			}
 		}
 	}
+	*/
 }
 
 /*

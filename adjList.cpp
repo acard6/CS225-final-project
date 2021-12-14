@@ -20,14 +20,14 @@ ADJList::ADJList(){
 
 size_t ADJList::size(){return length;}
 
-pair<string,ADJList::edgeList>& ADJList::operator[](const int& key){
-    int idx = find(to_string(key));
-    return *list[idx]; //returns the key which is a string
+ADJList::edgeList ADJList::operator[](const int& key){
+    //int idx = find(to_string(key));
+    return list[key]->second; //returns the key which is a string
 }
 
 ADJList::edgeList ADJList::getList(Airport& airport){
-	string IDName = airport.name;
-	unsigned int idx = find(IDName);
+	string IDName = airport.code;
+	int idx = find(IDName);
 	if (idx != -1){
 		return list[idx]->second;
 	}
@@ -36,7 +36,7 @@ ADJList::edgeList ADJList::getList(Airport& airport){
 }
 
 ADJList::edgeList ADJList::getList(string& Name){
-	unsigned int idx = find(Name);
+	int idx = find(Name);
 	if (idx != -1){
 		return list[idx]->second;
 	}
@@ -47,8 +47,8 @@ ADJList::edgeList ADJList::getList(string& Name){
 void ADJList::addEdge(const Route& route){
 	string orig = route.source;
 	string dest = route.destination;
-	unsigned int ogIdx = find(orig);
-	unsigned int destIdx = find(dest);
+	int ogIdx = find(orig);
+	int destIdx = find(dest);
 	if (ogIdx != -1 || destIdx != -1){ // if either airport is in the hashtable
 		Airport start = list[ogIdx]->second.getHead()->destination;
 		Airport end = list[destIdx]->second.getHead()->destination;
@@ -62,17 +62,17 @@ void ADJList::addEdge(const Route& route){
 		edge* temp = list[ogIdx]->second.getHead();
 		while (temp->next != NULL){
 			//ensures that duplicate paths aren't added in
-			if (temp->destination.name == endPoint->destination.name){return;}
+			if (temp->destination.code == endPoint->destination.code){return;}
 			temp = temp->next;
 		}
-		if (temp->destination.name == endPoint->destination.name){return;}
+		if (temp->destination.code == endPoint->destination.code){return;}
 		temp->next = endPoint;
 		list[ogIdx]->second.inc();
 	}
 }
 
 void ADJList::addVertex(vector<Airport>& airportList){
-	for (int i=0; i < airportList.size(); i++){
+	for (size_t i=0; i < airportList.size(); i++){
 		int idx = hashFunc(airportList[i]);
 		int id2 = doubleHash(airportList[i]);
 		while (list[idx] != NULL){
@@ -85,11 +85,11 @@ void ADJList::addVertex(vector<Airport>& airportList){
 		origin->next = NULL; 
 		edgeList linkedList = edgeList();
 		linkedList.header(*origin);
-		list[idx] = new pair<string, edgeList>(airportList[i].name, linkedList);
+		list[idx] = new pair<string, edgeList>(airportList[i].code, linkedList);
 	}
 }
 
-unsigned int ADJList::find(string Name){
+int ADJList::find(string Name){
 	unsigned int idx = hashFunc(Name);
 	unsigned int id2 = doubleHash(Name);
 	unsigned int original = idx;
@@ -107,12 +107,12 @@ unsigned int ADJList::find(string Name){
 }
 
 unsigned int ADJList::hashFunc(const Airport& airport){
-	string name = airport.name;
+	string name = airport.code;
 	return hashFunc(name);
 }
 
 unsigned int ADJList::doubleHash(const Airport& airport){
-	string name = airport.name;
+	string name = airport.code;
 	return doubleHash(name);
 }
 

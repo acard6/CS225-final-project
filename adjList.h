@@ -87,7 +87,7 @@ class ADJList{
          * uses hash function to help locate where in the table an
          * airport is
          */
-        unsigned int find(const string& Name) const;
+        int find(const string& Name) const;
 
         //add an edge to an existing vertext
         void addEdge(const Route& route);
@@ -99,17 +99,17 @@ class ADJList{
         size_t size();
 
         //for finding things at an index in the class
-        pair<string,edgeList>& operator[](const int& key);
+        edgeList operator[](const int& key);
 
         /**
          * uses hash function to help locate where in the table an
          * airport is
          */
-        unsigned int find(string Name);
+        int find(string Name);
 
         edgeList getList(Airport& airport);
         edgeList getList(string& Name);
 
-        /** pair of doubly liked airport and linked edges **/ 
+        /** pair of doubly liked airport and linked edges */ 
         std::pair<string, edgeList>** list;  
 };
