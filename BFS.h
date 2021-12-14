@@ -24,8 +24,6 @@ public:
 
 private:
   queue<Airport> queue_;
-  Airport start_;
   vector<bool> visited;
 };
 
-#include "BFS.cpp"

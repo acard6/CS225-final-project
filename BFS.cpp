@@ -7,37 +7,39 @@
 #include <vector>
 #include <map>
 
+#include "BFS.h"
+
 using namespace std;
 
 BFS::BFS(Airport* start){
     ADJList graph = ADJList();
     vector<Airport> path;
-    start_ = start;
-    queue_.push(start_);
+    queue_.push(start);
     for(int i =0; i<7699; i++){
         visited.push_back(false);
     }
-    visited[find(start.name)]=true;
+    visited[graph.find(start->name)]=true;
 
     while(!queue_.empty()){
-        Airport node* = queue_.front();
+        Airport node * = queue_.front();
         
 
-        edgeList templ = graph.getList(node.name);
-        edge temp = templ.getHead();
+        ADJList::edgeList templ = graph.getList(node.name);
+        ADJList::edge* temp = templ.getHead();
         while(temp != NULL){
-            if(visited[find(temp.destination.name)] == false){
-                visited[find(temp.destination.name)] == true;
-                queue_.push(temp.destination);
-                temp = temp.next;
+            if(visited[graph.find(temp->destination.name)] == false){
+                visited[graph.find(temp->destination.name)] = true;
+                queue_.push(temp->destination);
+                temp = temp->next;
             }
             else{
-                temp = temp.next;
+                temp = temp->next;
             }
         }
         queue_.pop();
     }
 }
+
 vector<Airport> BFS::Shortest(Airport* a,Airport* b){
     ADJList graph = ADJList();
     vector<Airport> path;
@@ -47,52 +49,43 @@ vector<Airport> BFS::Shortest(Airport* a,Airport* b){
     vector<Airport> previous;
     for(int i = 0;i<7699;i++){
         dist[i] = INFINITY;
-        previous.push_back(NULL);
+        previous.push_back(new Airport());
         v.push_back(false);
     }
-    dist[find(a.name)] = 0;
-    previous[find(a.name)] = -1;
-    v[find(a.name)] = true
+    dist[graph.find(a->name)] = 0;
+    v[graph.find(a->name)] = true;
     q.push(a);
     while(!q.empty()){
-        Airport node* = q.front();
-        edgeList templ = graph.getList(node.name);
-        edge temp = templ.getHead();
+        Airport node * = q.front();
+        ADJList::edgeList templ = graph.getList(node.name);
+        ADJList::edge* temp = templ.getHead();
         while(temp != NULL){
-            if(v[find(temp.destination.name])==false){
-                if((dist[find(node.name)] + temp.weight) < dist[find(temp.destination.name)]){
-                    dist[find(node.name)] =+ temp.weight;
-                    previous[find(temp.destination.name)] = node;
-                    q.push(temp.destination);
-                    temp.next;
-                    dist[find(temp.destination.name)] =+ temp.weight;
-                    previous[find(temp.destination.name)] = *node;
-                    q.push(temp.destination);
-                    temp = temp.next;
-                }
-                else{
-                    dist[find(node.name)] =+ temp.weight;
-                    previous[find(node.name)] = temp.destination;
-                    q.push(temp.destination);
-                    temp = temp.next;
+            if(v[graph.find(temp->destination.name)]==false){
+                v[graph.find(temp->destination.name)] = true;
+                if((dist[graph.find(node.name)] + temp->weight) < dist[graph.find(temp->destination.name)]){
+                    dist[graph.find(node.name)] += temp->weight;
+                    previous[graph.find(temp->destination.name)] = node;
+                    q.push(temp->destination);
+                    temp = temp->next;
                 }
             }
             else{
-                temp = temp.next;
+                temp = temp->next;
             }
         }
         q.pop();
     }
     stack<Airport> stack;
-    int i = find(b.name);
-    while(previous[i]!= -1){
+    int i = graph.find(b->name);
+    while(!(previous[i] == a)){
         stack.push(previous[i]);
-        int temp = find(previous[i].name);
+        int temp = graph.find(previous[i].name);
         i = temp;
     }
-    stack.push(previous[find(a.name)]);
+    stack.push(a);
+    //stack.push(previous[graph.find(a->name)]);
     for(unsigned int i = 0;i<stack.size();i++){
-        path.push(stack.top());
+        path.push_back(stack.top());
         stack.pop();
     }
 
