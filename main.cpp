@@ -54,7 +54,8 @@ int main(int argc, char *argv[])
         
         if(param == "BFS")
         {
-            
+            //SEGFAULT When going into BFS(ADJList graph,Airport start) due to NULL graph being past in 
+            //causing an out of bounds of idx -1 when going into visited vector
             BFS traversal = BFS(graphList,vertices[87]);
             vector<Airport> shortestpath = traversal.Shortest(graphList,vertices[12],vertices[48]);
             vector<Route> R;
