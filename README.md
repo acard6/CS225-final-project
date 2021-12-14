@@ -104,5 +104,16 @@ normal with the argument PngRouteComparison (1, 10, 100, or 1000)
 The function returns TRUE if the output PNG is exactly the same as the test
 PNG and FALSE otherwise.
 
+Output files are placed in the testPNGs folder with the naming convention
+of ("airport" or "route") + (n) + ".png"
+
 ###### Graph Coloring
 
+For the graph coloring test, call
+PngSimpleRouteHighlightTest() or PngComplexRouteHighlightTest().
+To call this, execute the program as normal with the argument
+PngSimpleRouteHighlightTest() or PngComplexRouteHighlightTest()
+The function returns TRUE if there were no errors, and FALSE if there were.
+
+Output files are placed in the testPNGs folder with the naming convention
+of ("simple" or "complex") + "HighlightTest.png"

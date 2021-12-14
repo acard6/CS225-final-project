@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     // the actual graph made from the adjacency list class
     ADJList graphList;
     graphList.addVertex(vertices);
-    for (int i=0; i<edges.size(); i++){
+    for (size_t i=0; i<edges.size(); i++){
         graphList.addEdge(edges[i]);
     }
 

@@ -20,8 +20,6 @@ private:
     //Four default values for the dots and lines plotted on the map
     HSLAPixel airportDot; //yellow
     HSLAPixel optimalRoute; //green
-    HSLAPixel secondBestRoute; //blue
-    HSLAPixel worstRoute; //red
 
     //A mapping from an airport's code to the airport
     map<string, Airport> airports;

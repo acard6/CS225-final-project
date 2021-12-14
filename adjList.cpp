@@ -72,7 +72,7 @@ void ADJList::addEdge(const Route& route){
 }
 
 void ADJList::addVertex(vector<Airport>& airportList){
-	for (int i=0; i < airportList.size(); i++){
+	for (size_t i=0; i < airportList.size(); i++){
 		int idx = hashFunc(airportList[i]);
 		int id2 = doubleHash(airportList[i]);
 		while (list[idx] != NULL){
