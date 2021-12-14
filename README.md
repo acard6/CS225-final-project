@@ -1,6 +1,20 @@
 # sarobin2-acard6-ob5-jgharib2
 ## Final project for sarobin2-acard6-ob5-jgharib2
 
+#### Data Format
+
+###### Airports
+
+Data is formatted in the following way in the CSV file:
+
+Name,City,Country,Code,Latitude,Longitude
+
+###### Routes
+
+Data is formatted in the following way in the CSV file:
+
+Source,Destination,Number of stops
+
 #### Code Base Layout
 
 The main components of the project are included in the base of the
@@ -35,6 +49,23 @@ A group of functions used to test various aspects of the program.
 
 #### Code Base Functionality
 
+The executable can be run with ./project (arguments). There is no default
+functionality in it. Arguments are needed to run the program.
+
+###### Adjacency List arguments
+
+###### Graph arguments
+
+PlotFull (string filename)
+PlotN (int n) (string filename)
+
+###### Test arguments
+
+TestArgs - test arguments are correctly being passed
+TestAirportImport (int n) (string airportString)
+TestRouteImport (int n) (string routeString)
+PngAirportComparison (int n)
+PngRouteComparison (int n)
 
 #### Running test cases
 
@@ -59,10 +90,14 @@ otherwise.
 
 For the airport output test, choose 1, 10, 100, or 1000 and call
 PngAirportComparison(n). Only these numbers will work for the test. All
-other numbers will be rounded to the nearest one of the four. The function
-returns true if the output PNG is exactly the same as the test PNG and
-false otherwise.
+other numbers will be rounded to the nearest one of the four. To call this,
+execute the program as normal with the argument
+PngAirportComparison (1, 10, 100, or 1000)
+The function returns TRUE if the output PNG is exactly the same as the test
+PNG and FALSE otherwise.
 
 Similarly, the route output test operates the same. Choose 1, 10, 100, or
-1000 and call PngRouteComparison(n). The function returns true if the output
-PNG is exactly the same as the test PNG and false otherwise.
+1000 and call PngRouteComparison(n). To call this, execute the program as
+normal with the argument PngRouteComparison (1, 10, 100, or 1000)
+The function returns TRUE if the output PNG is exactly the same as the test
+PNG and FALSE otherwise.

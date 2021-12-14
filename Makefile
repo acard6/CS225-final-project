@@ -1,5 +1,5 @@
 EXENAME = project
-OBJS = adjList.o Airport.o DataImport.o main.o PngMap.o HSLAPixel.o Route.o PNG.o lodepng.o #BFS.o
+OBJS = adjList.o Airport.o DataImport.o main.o PngMap.o HSLAPixel.o Route.o PNG.o lodepng.o BFS.o
 
 CXX = clang++
 CXXFLAGS = $(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
@@ -32,8 +32,8 @@ output_msg: ; $(CLANG_VERSION_MSG)
 $(EXENAME): output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
-# BFS.o: BFS.cpp BFS.h
-# 	$(CXX) $(CXXFLAGS) BFS.cpp
+BFS.o: BFS.cpp BFS.h
+	$(CXX) $(CXXFLAGS) BFS.cpp
 
 adjList.o: adjList.cpp adjList.h
 	$(CXX) $(CXXFLAGS) adjList.cpp
