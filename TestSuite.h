@@ -1,10 +1,7 @@
 #pragma once
 
-#include "Airport.h"
-#include "DataImport.h"
-#include "Route.h"
-#include "adjList.h"
 #include "PngMap.h"
+#include "BFS.h"
 
 #include <iostream>
 
@@ -189,16 +186,54 @@ bool PngRouteComparison(int n)
 /*
 	Graph Coloring
 */
-bool PngSimpleRouteHighlightComparison(Airport source, Airport dest)
+bool PngSimpleRouteHighlightTest()
 {
-	source.longitude = 0;
-	dest.longitude = 0;
+	Airport source, dest;
+	source.name = "Hudson Bay Airport";
+	source.city = "Hudson Bay";
+	source.country = "Canada";
+	source.code = "YHB";
+	source.latitude = 52.81669998;
+	source.longitude = -102.310997;
+
+	dest.name = "Dryden Regional Airport";
+	dest.city = "Dryden";
+	dest.country = "Canada";
+	dest.code = "YHD";
+	dest.latitude = 49.831699;
+	dest.longitude = -92.744202;
+
+	BFS bfs(source);
+	vector<Airport> path = bfs.Shortest(source, dest);
+
+	PngMap pngMap(path);
+	pngMap.createMap(vector<Route>(), "./testPNGs/simpleHighlightTest.png");
+
 	return false;
 }
 
-bool PngComplexRouteHighlightComparison(Airport source, Airport dest)
+bool PngComplexRouteHighlightTest()
 {
-	source.longitude = 0;
-	dest.longitude = 0;
+	Airport source, dest;
+	source.name = "Hudson Bay Airport";
+	source.city = "Hudson Bay";
+	source.country = "Canada";
+	source.code = "YHB";
+	source.latitude = 52.81669998;
+	source.longitude = -102.310997;
+
+	dest.name = "Alexander Bay Airport";
+	dest.city = "Alexander Bay";
+	dest.country = "South Africa";
+	dest.code = "ALJ";
+	dest.latitude = -28.575001;
+	dest.longitude = 16.5333;
+
+	BFS bfs(source);
+	vector<Airport> path = bfs.Shortest(source, dest);
+
+	PngMap pngMap(path);
+	pngMap.createMap(vector<Route>(), "./testPNGs/complexHighlightTest.png");
+
 	return false;
 }

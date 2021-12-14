@@ -1,7 +1,4 @@
-#include "adjList.h"
-#include "cs225/PNG.h"
 #include "TestSuite.h"
-#include "PngMap.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +8,7 @@ int main(int argc, char *argv[])
     vector<Airport> vertices = ImportAirports(airportData);
     vector<Route> edges = ImportRoutes(routeData);
 
+<<<<<<< HEAD
     // the small graph made for testing
     ADJList* graphList = smallADJList();
     vector<string> places = {"ORD","ATL","DFW","DEN","JFK","DTW","SFO","ORL","SLC","LAX"};
@@ -20,6 +18,13 @@ int main(int argc, char *argv[])
 
         string name = head->destination.name;
         cout << name << endl;
+=======
+    // the actual graph made from the adjacency list class
+    ADJList graphList;
+    graphList.addVertex(vertices);
+    for (size_t i=0; i<edges.size(); i++){
+        graphList.addEdge(edges[i]);
+>>>>>>> 9f252679cede54afa83961d8488c0eac7857335f
     }
 
 
