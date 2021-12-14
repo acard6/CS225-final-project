@@ -15,9 +15,7 @@ using namespace std;
 class BFS{
 public:
   //Traverses the graph
-  BFS(){
-    start_ = NULL;
-  }
+  BFS(){}
   BFS(Airport* start);
   //Uses Dijkstra's Algorithm to find the shortest path to every node
   vector<Airport> Shortest(Airport* a, Airport* b);
