@@ -9,13 +9,34 @@ int main(int argc, char *argv[])
     vector<Route> edges = ImportRoutes(routeData);
 
     // the small graph made for testing
+<<<<<<< HEAD
     
+=======
+    ADJList graphList = ADJList();
+	graphList.addVertex(vertices);
+	for (size_t i = 0; i < edges.size(); i++) {
+		graphList.addEdge(edges[i]);
+	}
+    
+    /*
+    vector<string> places = {"ORD","ATL","DFW","DEN","JFK","DTW","SFO","ORL","SLC","LAX"};
+    for (size_t i=0; i<places.size(); i++){
+        
+        ADJList::edge* head = graphList->getList(places[i]).getHead();
+
+        string name = head->destination.name;
+        cout << name << endl;
+    }
+    */
+
+>>>>>>> 6432fec26b577e873f7b8bf3c3bc899bed15a89b
     if(argc >= 2)
     {
         string param(argv[1]);
         bool test = false;
 
         //Adjacency List arguments
+<<<<<<< HEAD
         if(param == "adjList"){
 
             ADJList* graphList = new ADJList();
@@ -27,6 +48,9 @@ int main(int argc, char *argv[])
             string ohare = graphList->getList(place).getHead()->destination.code;
             cout << ohare << endl;
         }
+=======
+        
+>>>>>>> 6432fec26b577e873f7b8bf3c3bc899bed15a89b
 
         //Graph arguments
         if(param == "PlotFull")
@@ -50,6 +74,7 @@ int main(int argc, char *argv[])
             PngMap pngMap(subAirports);
             pngMap.createMap(subRoutes, argv[3]);
         }
+<<<<<<< HEAD
         /**
         if(param == "BFS")
         {
@@ -68,6 +93,15 @@ int main(int argc, char *argv[])
             //BFS traversal = BFS(graphList,vertices[1]);
             
             vector<Airport> shortestpath = traversal.Shortest(graphList,vertices[12],vertices[48]);
+=======
+        
+        if(param == "BFS")
+        {
+            //SEGFAULT When going into BFS(ADJList graph,Airport start) due to NULL graph being past in 
+            //causing an out of bounds of idx -1 when going into visited vector
+            BFS traversal = BFS(graphList,vertices[3630]);
+            vector<Airport> shortestpath = traversal.Shortest(graphList,vertices[3630],vertices[429]);
+>>>>>>> 6432fec26b577e873f7b8bf3c3bc899bed15a89b
             vector<Route> R;
             for(unsigned int i = 0;i<(shortestpath.size()-2);i++){
                 R.push_back(Route(shortestpath[i].code,shortestpath[i+1].code,0));

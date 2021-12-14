@@ -1,5 +1,6 @@
 #include <iterator>
 #include <cmath>
+#include <iostream>
 
 #include <list>
 #include <queue>
@@ -12,7 +13,7 @@
 using namespace std;
 
 BFS::BFS(ADJList graph,Airport start){
-    queue<Airport> queue_;
+    
     queue_.push(start);
     for(int i =0; i<7699; i++){
         visited.push_back(false);
