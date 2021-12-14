@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 
     // the small graph made for testing
     ADJList* graphList = smallADJList();
+    /*
     vector<string> places = {"ORD","ATL","DFW","DEN","JFK","DTW","SFO","ORL","SLC","LAX"};
     for (size_t i=0; i<places.size(); i++){
         
@@ -18,7 +19,7 @@ int main(int argc, char *argv[])
         string name = head->destination.name;
         cout << name << endl;
     }
-
+    */
 
     if(argc >= 2)
     {
@@ -26,7 +27,7 @@ int main(int argc, char *argv[])
         bool test = false;
 
         //Adjacency List arguments
-        /*
+        
 
         //Graph arguments
         if(param == "PlotFull")
@@ -50,23 +51,11 @@ int main(int argc, char *argv[])
             PngMap pngMap(subAirports);
             pngMap.createMap(subRoutes, argv[3]);
         }
-        */
+        
         if(param == "BFS")
         {
             
-            
-            BFS traversal = BFS(graphList,vertices[1]);
-            //Airport a1 = graphList.getList("Chicago O'Hare International Airport").getHead();
-            /*
-            ADJList::edgeList templ = graphList.getList("Chicago O'Hare International Airport");
-            ADJList::edge* temp = templ.getHead();
-            for(unsigned int i = 0;i<templ.getSize();i++){
-                cout << temp->destination.name << " - " << temp->weight << endl;
-                temp = temp->next;
-            }
-            */
-            //BFS traversal = BFS(graphList,vertices[1]);
-            
+            BFS traversal = BFS(graphList,vertices[87]);
             vector<Airport> shortestpath = traversal.Shortest(graphList,vertices[12],vertices[48]);
             vector<Route> R;
             for(unsigned int i = 0;i<(shortestpath.size()-2);i++){

@@ -186,6 +186,8 @@ bool PngRouteComparison(int n)
 /*
 	Graph Coloring
 */
+
+/*
 bool PngSimpleRouteHighlightTest()
 {
 	Airport source, dest;
@@ -237,3 +239,4 @@ bool PngComplexRouteHighlightTest()
 
 	return false;
 }
+*/
