@@ -1,8 +1,4 @@
-#include "adjList.h"
-#include "cs225/PNG.h"
 #include "TestSuite.h"
-#include "PngMap.h"
-#include "BFS.h"
 
 int main(int argc, char *argv[])
 {

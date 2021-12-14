@@ -1,28 +1,28 @@
-Leading question:
+## Leading question:
 
-Given a set of known flight paths we want to be able to:
+Given a set of known flight paths we want to be able to
 
-Find the shortest path between two chosen points
-highlight all the shortest paths
-Output that path onto a world map
+- Find the shortest path between two chosen points
+- Highlight the shortest path
+- Output that path onto a world map
 
-Dataset Acquisition and Processing:
+## Dataset Acquisition and Processing
 
-Acquisition
+#### Acquisition
 
 For out dataset we will be using OpenFlights (https://openflights.org/data.html) mainly focusing on the
 route path data along with the airport location data. This data will lead our verticies to be
 airports/stops made and the edges to be the flight path between.
 
-Processing
+#### Processing
 
 In terms of processing the dataset we will download the data files (.CSV) containing the flight paths
 and airport locations from the OpenFlighst dataset storing the data in an adjacency list for optimal
 runtime. From this list we will determine the shortest route from a chosen point to another.
 
-Graph Algorithms
+## Graph Algorithms
 
-Data Algorithms
+#### Data Algorithms
 
 Shortest path - Develop an algorithm that will find the shortest path between two given points in the
 set using dijkstra's algorithm. The Input would the graph of flight paths and the output would be all
@@ -40,7 +40,7 @@ Rendering - If time alloted, develop an algorithm that outputs the colored graph
 input would be the colored shortest path graph and the list of associated airports. The expected runtime
 would be O(deg(V)).
 
-Traversal Algorithms
+#### Traversal Algorithms
 
 The main travelral algorithm will be a Breadth-first search. Where the input would be  a the set of flight
 paths and the output would find the spanning set from one point to another. The output will also have

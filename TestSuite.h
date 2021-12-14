@@ -1,9 +1,5 @@
 #pragma once
 
-#include "Airport.h"
-#include "DataImport.h"
-#include "Route.h"
-#include "adjList.h"
 #include "PngMap.h"
 #include "BFS.h"
 

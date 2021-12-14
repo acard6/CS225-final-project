@@ -15,6 +15,10 @@ Data is formatted in the following way in the CSV file:
 
 Source,Destination,Number of stops
 
+#### Linkage
+
+![This is an image](diagram.png)
+
 #### Code Base Layout
 
 The main components of the project are included in the base of the

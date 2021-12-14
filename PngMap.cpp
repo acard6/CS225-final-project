@@ -60,7 +60,7 @@ void PngMap::plotRoutes(vector<Route> routes)
 {
     if(routes.empty()) return;
     
-    for(int i = 0; i < routes.size(); ++i)
+    for(size_t i = 0; i < routes.size(); ++i)
     {
         Airport source = airports[routes[i].source];
         Airport dest = airports[routes[i].destination];

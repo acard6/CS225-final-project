@@ -30,22 +30,10 @@ Sasha Bilenkyi: Start working on the final presentation slides.
 
 Justin Gharib: BFS search/Shortest path
 
-Sean Womack: Rendering, Dev Log, and README
+Sean Womack: Rendering, Dev Log, README, Graph coloring
 
-#### TODO:
+All: Test suite //Completed alongside other goals
 
-Graph coloring
-
-Test suite //Completed alongside other goals
-
-
-#### Deliverables:
-
-Code base?
--README
---instructions on how to use code base (build/run, define date, locate output)
---instructions on how to use test suite
----general description of tests ran
 
 Written report?
 -Results (one to two pages)
