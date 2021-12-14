@@ -9,7 +9,12 @@ int main(int argc, char *argv[])
     vector<Route> edges = ImportRoutes(routeData);
 
     // the small graph made for testing
-    ADJList* graphList = smallADJList();
+    ADJList graphList = ADJList();
+	graphList.addVertex(vertices);
+	for (size_t i = 0; i < edges.size(); i++) {
+		graphList.addEdge(edges[i]);
+	}
+    
     /*
     vector<string> places = {"ORD","ATL","DFW","DEN","JFK","DTW","SFO","ORL","SLC","LAX"};
     for (size_t i=0; i<places.size(); i++){
@@ -56,8 +61,8 @@ int main(int argc, char *argv[])
         {
             //SEGFAULT When going into BFS(ADJList graph,Airport start) due to NULL graph being past in 
             //causing an out of bounds of idx -1 when going into visited vector
-            BFS traversal = BFS(graphList,vertices[87]);
-            vector<Airport> shortestpath = traversal.Shortest(graphList,vertices[12],vertices[48]);
+            BFS traversal = BFS(graphList,vertices[3630]);
+            vector<Airport> shortestpath = traversal.Shortest(graphList,vertices[3630],vertices[429]);
             vector<Route> R;
             for(unsigned int i = 0;i<(shortestpath.size()-2);i++){
                 R.push_back(Route(shortestpath[i].code,shortestpath[i+1].code,0));
