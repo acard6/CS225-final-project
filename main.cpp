@@ -4,6 +4,7 @@
 #include "PngMap.h"
 #include <iostream>
 #include <map>
+#include "BFS.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ int main()
 
     // the actual graph made from the adjacency list class
     ADJList graphList;
+    //SEGFAULT HERE
     graphList.addVertex(vertices);
     for (int i=0; i<edges.size(); i++){
         graphList.addEdge(edges[i]);
