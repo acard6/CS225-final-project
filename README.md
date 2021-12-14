@@ -29,7 +29,7 @@ The class that holds the relevant information for each airport (name, city,
 country, airport code, latitude, and longitude).
 
 ###### BFS
-The class that supports functionality for a breadth-first search on the
+The class that supports functionality for a breadth-first search and Dijkstra's Algorithm on the
 adjList class.
 
 ###### DataImport
