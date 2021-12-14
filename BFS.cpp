@@ -11,17 +11,17 @@
 
 using namespace std;
 
-BFS::BFS(Airport* start){
+BFS::BFS(Airport start){
     ADJList graph = ADJList();
-    vector<Airport> path;
+    queue<Airport> queue_;
     queue_.push(start);
     for(int i =0; i<7699; i++){
         visited.push_back(false);
     }
-    visited[graph.find(start->name)]=true;
+    visited[graph.find(start.name)]=true;
 
     while(!queue_.empty()){
-        Airport node * = queue_.front();
+        Airport node = queue_.front();
         
 
         ADJList::edgeList templ = graph.getList(node.name);
@@ -40,7 +40,7 @@ BFS::BFS(Airport* start){
     }
 }
 
-vector<Airport> BFS::Shortest(Airport* a,Airport* b){
+vector<Airport> BFS::Shortest(Airport a,Airport b){
     ADJList graph = ADJList();
     vector<Airport> path;
     queue<Airport> q;
@@ -49,14 +49,15 @@ vector<Airport> BFS::Shortest(Airport* a,Airport* b){
     vector<Airport> previous;
     for(int i = 0;i<7699;i++){
         dist[i] = INFINITY;
-        previous.push_back(new Airport());
+        Airport tempair = Airport();
+        previous.push_back(tempair);
         v.push_back(false);
     }
-    dist[graph.find(a->name)] = 0;
-    v[graph.find(a->name)] = true;
+    dist[graph.find(a.name)] = 0;
+    v[graph.find(a.name)] = true;
     q.push(a);
     while(!q.empty()){
-        Airport node * = q.front();
+        Airport node = q.front();
         ADJList::edgeList templ = graph.getList(node.name);
         ADJList::edge* temp = templ.getHead();
         while(temp != NULL){
@@ -76,14 +77,13 @@ vector<Airport> BFS::Shortest(Airport* a,Airport* b){
         q.pop();
     }
     stack<Airport> stack;
-    int i = graph.find(b->name);
-    while(!(previous[i].name == a->name)){
+    unsigned int i = graph.find(b.name);
+    while(!(previous[i].name == a.name)){
         stack.push(previous[i]);
-        int temp = graph.find(previous[i].name);
+        unsigned int temp = graph.find(previous[i].name);
         i = temp;
     }
-    stack.push(&a);
-    //stack.push(previous[graph.find(a->name)]);
+    stack.push(previous[i]);
     for(unsigned int i = 0;i<stack.size();i++){
         path.push_back(stack.top());
         stack.pop();
