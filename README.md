@@ -86,6 +86,8 @@ TestRouteImport (line number - 1) (string in the chosen line)
 The function will output TRUE if the airport objects are the same, and false
 otherwise.
 
+###### Adjacency List
+
 ###### PNG Comparison
 
 For the airport output test, choose 1, 10, 100, or 1000 and call
@@ -101,3 +103,6 @@ Similarly, the route output test operates the same. Choose 1, 10, 100, or
 normal with the argument PngRouteComparison (1, 10, 100, or 1000)
 The function returns TRUE if the output PNG is exactly the same as the test
 PNG and FALSE otherwise.
+
+###### Graph Coloring
+
