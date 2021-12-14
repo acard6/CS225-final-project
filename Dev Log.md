@@ -30,14 +30,11 @@ Sasha Bilenkyi: Start working on the final presentation slides.
 
 Justin Gharib: BFS search/Shortest path
 
+Sean Womack: Rendering and README
 
 TODO:
 
-{ //Must be completed in order
-	Rendering
-
-	Graph coloring
-}
+Graph coloring
 
 Test suite //Completed alongside other goals
 
@@ -53,12 +50,10 @@ Code base?
 ---general description of tests ran
 
 Written report?
--Goals (copy of proposal renamed)
--Dev log (X)
 -Results (one to two pages)
 
 Presentation?
-- <10min video describing the project
+-<10min video describing the project
 --Goals
 --Development process (strategies, data acquisition and selection, testing, etc.)
 --Conclusions

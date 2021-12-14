@@ -6,27 +6,41 @@
 #include "adjList.h"
 #include "PngMap.h"
 
+#include <iostream>
+
+using namespace std;
+
 /*
 	Data import
 */
 //Compare the nth value in the dataset to the test airport
-bool TestAirportImport(int n, Airport* airport)
+bool TestAirportImport(int n, string airportString)
 {
-	if (!airport) return false;
-
+	vector<string> airportVec = Split(airportString, ",");
 	vector<Airport> data = ImportAirports("./data/airports.csv");
 
-	return data[n] == *airport;
+	double lat = stod(airportVec[4].c_str(), NULL);
+    double lon = strtod(airportVec[5].c_str(), NULL);
+
+    Airport airport(airportVec[0], airportVec[1],
+					airportVec[2], airportVec[3],
+					lat, lon);
+
+
+	return data[n] == airport;
 }
 
 //Compare the nth value in the dataset to the test route
-bool TestRouteImport(int n, Route* route)
+bool TestRouteImport(int n, string routeString)
 {
-	if (!route) return false;
-
+	vector<string> routeVec = Split(routeString, ",");
 	vector<Route> data = ImportRoutes("./data/routes.csv");
 
-	return data[n] == *route;
+	int stops = stoi(routeVec[2]);
+
+	Route route(routeVec[0], routeVec[1], stops);
+
+	return data[n] == route;
 }
 
 /*
@@ -34,12 +48,58 @@ bool TestRouteImport(int n, Route* route)
 */
 bool PngAirportComparison(int n)
 {
-	vector<Airport> airports = ImportAirports("./data/airports.csv");
+	if(n < 5) n = 1;
+	else if(n < 50) n = 10;
+	else if(n < 500) n = 100;
+	else n = 1000;
 
-	PngMap airportMap(airports);
-	airportMap.createMap(vector<Route>(),
-		"airportComparison" + to_string(n) + ".png");
+	vector<Airport> airports = ImportAirports("./data/airports.csv");
+	vector<Airport> subAirports;
+	for(int i = 0; i < n; ++i) subAirports.push_back(airports[i]);
+
+	string folder = "./testPNGs/";
+	string output = folder + "airportComparison" + to_string(n) + ".png";
+	PngMap airportMap(subAirports);
+	airportMap.createMap(vector<Route>(), output);
+
+	PNG actual;
+	actual.readFromFile(output);
 	
+	switch(n)
+	{
+		case 1:
+		{
+			PNG test;
+			test.readFromFile(folder + "test1Airports.png");
+
+			return test == actual;
+		}
+		
+		case 10:
+		{
+			PNG test;
+			test.readFromFile(folder + "test10Airports.png");
+
+			return test == actual;
+		}
+		
+		case 100:
+		{
+			PNG test;
+			test.readFromFile(folder + "test100Airports.png");
+
+			return test == actual;
+		}
+
+		case 1000:
+		{
+			PNG test;
+			test.readFromFile(folder + "test1000Airports.png");
+
+			return test == actual;
+		}
+	}
+
 	return false;
 }
 
@@ -55,11 +115,11 @@ void smallADJList() {
 
 	ADJList* graphList = new ADJList();
 	graphList->addVertex(vertices);
-	for (int i = 0; i < edges.size(); i++) {
+	for (size_t i = 0; i < edges.size(); i++) {
 		graphList->addEdge(edges[i]);
 	}
 
-	for (int i = 0; i < graphList->size(); i++) {
+	for (size_t i = 0; i < graphList->size(); i++) {
 		if (graphList->list[i] != NULL) {
 			ADJList::edgeList list = graphList->list[i]->second;
 			ADJList::edge* temp = list.getHead();
@@ -74,8 +134,54 @@ void smallADJList() {
 /*
 	Route Rendering
 */
-bool PngRouteComparison()
+bool PngRouteComparison(int n)
 {
+	if(n < 5) n = 1;
+	else if(n < 50) n = 10;
+	else if(n < 500) n = 100;
+	else n = 1000;
+
+	vector<Airport> airports = ImportAirports("./data/airports.csv");
+	vector<Route> routes = ImportRoutes("./data/routes.csv");
+	vector<Route> subRoutes;
+	for(int i = 0; i < n; ++i) subRoutes.push_back(routes[i]);
+
+	string folder = "./testPNGs/";
+	string output = folder + "routeComparison" + to_string(n) + ".png";
+	PngMap routeMap(airports);
+	routeMap.createMap(subRoutes, output);
+
+	PNG actual;
+	PNG test;
+	actual.readFromFile(output);
+	
+	switch(n)
+	{
+		case 1:
+		{
+			test.readFromFile(folder + "test1Routes.png");
+			return test == actual;
+		}
+		
+		case 10:
+		{
+			test.readFromFile(folder + "test10Routes.png");
+			return test == actual;
+		}
+		
+		case 100:
+		{
+			test.readFromFile(folder + "test100Routes.png");
+			return test == actual;
+		}
+
+		case 1000:
+		{
+			test.readFromFile(folder + "test1000Routes.png");
+			return test == actual;
+		}
+	}
+
 	return false;
 }
 
@@ -84,10 +190,14 @@ bool PngRouteComparison()
 */
 bool PngSimpleRouteHighlightComparison(Airport source, Airport dest)
 {
+	source.longitude = 0;
+	dest.longitude = 0;
 	return false;
 }
 
 bool PngComplexRouteHighlightComparison(Airport source, Airport dest)
 {
+	source.longitude = 0;
+	dest.longitude = 0;
 	return false;
 }
