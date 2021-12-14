@@ -1,18 +1,18 @@
-Week 1:
+#### Week 1:
 
 Project proposal and team contract were written and submitted.
 
-Week 2:
+#### Week 2:
 
 Project proposal was rejected. A new dataset was selected and the project proposal
 was rewritten and submitted. Approved on Thursday, 18.Nov.21. Work began on Friday
 though not much was accomplished due to travel for the holiday break.
 
-Week 3:
+#### Week 3:
 
 Fall break
 
-Week 4:
+#### Week 4:
 
 Sean Womack: Dev log for weeks 1-3 completed and uploaded.
 
@@ -24,27 +24,25 @@ python string split using a delimiter.
 
 Alan Cardiel: Graph building
 
-Week 5:
+#### Week 5:
 
 Sasha Bilenkyi: Start working on the final presentation slides. 
 
 Justin Gharib: BFS search/Shortest path
 
-Sean Womack: Rendering and README
+Sean Womack: Rendering, Dev Log, and README
 
-TODO:
+#### TODO:
 
 Graph coloring
 
 Test suite //Completed alongside other goals
 
 
-
-Deliverables:
+#### Deliverables:
 
 Code base?
 -README
---location of all major code
 --instructions on how to use code base (build/run, define date, locate output)
 --instructions on how to use test suite
 ---general description of tests ran
