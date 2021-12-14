@@ -14,10 +14,10 @@ using namespace std;
 
 class BFS{
 public:
-  //Traverses the graph
+  //Traverses the graph using BFS
   BFS(){}
   BFS(Airport start);
-  //Uses Dijkstra's Algorithm to find the shortest path to every node
+  //Uses Dijkstra's Algorithm to find the shortest path between two Airports
   vector<Airport> Shortest(Airport a, Airport b);
 
 private:
