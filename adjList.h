@@ -17,15 +17,20 @@ class ADJList{
     
     private:
         /** 
-        *   using a hash table to store the airport ID'd in a searchable way
-        *   with the keys are the vertices as an airport loation and values as
-        *   a linked list of the edges to adjecent vertecies containing
+        *   using a hash table to store the airport ID's in a searchable way
+        *   where the keys are the vertices as an airport code and values as
+        *   a linked list of the edges adjecent to that vertecies
         *   
-        *   from there
         */
 
 
         int length;    //size of the list
+        
+        /**
+         * The following hash functions we imported and used from a previous
+         * lab, lab_hash. The functoin implementaion was also heavily inspired
+         * by the dhhastable .h and .cpp for a successful and fast graph
+         */
 
         /**
          * hash function for so that airports are easy to look for and
@@ -52,24 +57,27 @@ class ADJList{
         *   and the edge weight 
         */
         
+        //edge struct that acts as nodes in the linked list
         struct edge {
             Airport destination; // the airport thats connected to the head/key
             edge* next; //edge pointer pointing to another aiport that connects to the vertex
             double weight; //weight from key vertex to this edge
         };
+
+        //container for the linked list of edges
         class edgeList {
             private:
                 edge* head; //head is main/original airport/vertex
-                int size;
+                int size;  // the size of the linked list
             public:
                 edgeList(){
                     head = NULL;
                     size = 1; 
                 }
-                edge* getHead(){return head;}
-                int getSize(){return size;}
-                void inc(){size +=1;}
-                void header(edge newHead)
+                edge* getHead(){return head;} // way of accessing the head of the list
+                int getSize(){return size;} // way of accessing the size of the list
+                void inc(){size +=1;} // increments the size of the list
+                void header(edge newHead) // changes the head of the list
                 {
                     head = new edge();
                     *head = newHead;
@@ -106,11 +114,16 @@ class ADJList{
          * airport is
          */
         int find(string Name);
-
+        
+        //get the edgeList of a specified airport of Airport class
         edgeList getList(Airport& airport);
+
+        //get the edgelist of a specified airport codeID name
         edgeList getList(string& Name);
+
+        //gets the edgeList of a specified index
         edgeList getList(int index);
 
-        /** pair of doubly liked airport and linked edges */ 
+        /** pair of string and liked airport by linked edges */ 
         std::pair<string, edgeList>** list;  
 };

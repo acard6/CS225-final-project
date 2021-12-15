@@ -24,9 +24,15 @@ int main(int argc, char *argv[])
             }
             
             string place = "ORD";
-            for (int i=0; i++)
-            string ohare = graphList->getList(place).getHead()->destination.name;
-            cout << ohare << endl;
+            //for (int i=0; i++)
+            ADJList::edgeList ohare = graphList->getList(place);
+            cout << ohare.getSize() << endl;
+            ADJList::edge* head = ohare.getHead();
+            cout << "head is " << head->destination.name << endl;
+            ADJList::edge* next = head->next;
+            string edge1 = next->next->destination.name;
+            double dist = next->next->weight;
+            cout << edge1 << " is " << dist << " kilometers away from "<< head->destination.code << endl;
         }
 
         //Graph arguments
