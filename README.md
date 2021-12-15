@@ -1,6 +1,8 @@
 # sarobin2-acard6-ob5-jgharib2
 ## Final project for sarobin2-acard6-ob5-jgharib2
 
+https://illinois.zoom.us/rec/play/G4gbmXgGuXdBbKREoqJpp8Q_nNu-iNVu_oZ1rze5kc0bwV_N4Uf-PT3I7EwvqcQfoipS7-P5gT2UKN98.R9AtSdlI4YubKVIr?startTime=1639546372000&_x_zm_rtaid=CmgKdHQOTLqLxgsnmEAeEg.1639544180337.e13dd179658131b38488be3f4593de6f&_x_zm_rhtaid=891
+
 #### Data Format
 
 Data is found in the data folder. Loading it in requires you to change the
